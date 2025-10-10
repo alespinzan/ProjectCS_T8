@@ -1,0 +1,85 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Arnau Pont\\Downloads\\Primer proyecto info2\\Primer proyecto info2 (parte 2)\\Primer Proyecto info\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{44556C78-FA9F-4CFE-8BBB-87D2116977B9}|FlightLib\\FlightLib.csproj|c:\\users\\arnau pont\\downloads\\primer proyecto info2\\primer proyecto info2 (parte 2)\\primer proyecto info\\flightlib\\flightplanlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{44556C78-FA9F-4CFE-8BBB-87D2116977B9}|FlightLib\\FlightLib.csproj|solutionrelative:flightlib\\flightplanlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{44556C78-FA9F-4CFE-8BBB-87D2116977B9}|FlightLib\\FlightLib.csproj|C:\\Users\\Arnau Pont\\Downloads\\Primer proyecto info2\\Primer proyecto info2 (parte 2)\\Primer Proyecto info\\flightlib\\position.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{44556C78-FA9F-4CFE-8BBB-87D2116977B9}|FlightLib\\FlightLib.csproj|solutionrelative:flightlib\\position.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{44556C78-FA9F-4CFE-8BBB-87D2116977B9}|FlightLib\\FlightLib.csproj|C:\\Users\\Arnau Pont\\Downloads\\Primer proyecto info2\\Primer proyecto info2 (parte 2)\\Primer Proyecto info\\flightlib\\flightplan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{44556C78-FA9F-4CFE-8BBB-87D2116977B9}|FlightLib\\FlightLib.csproj|solutionrelative:flightlib\\flightplan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CE7E8A4A-F1F7-4EAF-8088-7450A2A8B5A0}|SimulatorConsole\\SimulatorConsole.csproj|C:\\Users\\Arnau Pont\\Downloads\\Primer proyecto info2\\Primer proyecto info2 (parte 2)\\Primer Proyecto info\\simulatorconsole\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CE7E8A4A-F1F7-4EAF-8088-7450A2A8B5A0}|SimulatorConsole\\SimulatorConsole.csproj|solutionrelative:simulatorconsole\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "FlightPlanList.cs",
+              "DocumentMoniker": "C:\\Users\\Arnau Pont\\Downloads\\Primer proyecto info2\\Primer proyecto info2 (parte 2)\\Primer Proyecto info\\FlightLib\\FlightPlanList.cs",
+              "RelativeDocumentMoniker": "FlightLib\\FlightPlanList.cs",
+              "ToolTip": "C:\\Users\\Arnau Pont\\Downloads\\Primer proyecto info2\\Primer proyecto info2 (parte 2)\\Primer Proyecto info\\FlightLib\\FlightPlanList.cs",
+              "RelativeToolTip": "FlightLib\\FlightPlanList.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAgwCUAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-26T07:50:33.463Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "FlightPlan.cs",
+              "DocumentMoniker": "C:\\Users\\Arnau Pont\\Downloads\\Primer proyecto info2\\Primer proyecto info2 (parte 2)\\Primer Proyecto info\\FlightLib\\FlightPlan.cs",
+              "RelativeDocumentMoniker": "FlightLib\\FlightPlan.cs",
+              "ToolTip": "C:\\Users\\Arnau Pont\\Downloads\\Primer proyecto info2\\Primer proyecto info2 (parte 2)\\Primer Proyecto info\\FlightLib\\FlightPlan.cs",
+              "RelativeToolTip": "FlightLib\\FlightPlan.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAFkAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-25T11:42:20.726Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Position.cs",
+              "DocumentMoniker": "C:\\Users\\Arnau Pont\\Downloads\\Primer proyecto info2\\Primer proyecto info2 (parte 2)\\Primer Proyecto info\\FlightLib\\Position.cs",
+              "RelativeDocumentMoniker": "FlightLib\\Position.cs",
+              "ToolTip": "C:\\Users\\Arnau Pont\\Downloads\\Primer proyecto info2\\Primer proyecto info2 (parte 2)\\Primer Proyecto info\\FlightLib\\Position.cs",
+              "RelativeToolTip": "FlightLib\\Position.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAxwCUAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-25T11:42:20.765Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Arnau Pont\\Downloads\\Primer proyecto info2\\Primer proyecto info2 (parte 2)\\Primer Proyecto info\\SimulatorConsole\\Program.cs",
+              "RelativeDocumentMoniker": "SimulatorConsole\\Program.cs",
+              "ToolTip": "C:\\Users\\Arnau Pont\\Downloads\\Primer proyecto info2\\Primer proyecto info2 (parte 2)\\Primer Proyecto info\\SimulatorConsole\\Program.cs",
+              "RelativeToolTip": "SimulatorConsole\\Program.cs",
+              "ViewState": "AgIAADoAAAAAAAAAAAAgwFIAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-25T11:42:20.947Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
