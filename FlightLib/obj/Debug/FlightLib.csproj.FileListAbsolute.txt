@@ -4,3 +4,9 @@ C:\Users\Arnau Pont\Downloads\Primer proyecto info2\Primer proyecto info2\Primer
 C:\Users\Arnau Pont\Downloads\Primer proyecto info2\Primer proyecto info2\Primer Proyecto info\FlightLib\obj\Debug\FlightLib.csproj.CoreCompileInputs.cache
 C:\Users\Arnau Pont\Downloads\Primer proyecto info2\Primer proyecto info2\Primer Proyecto info\FlightLib\obj\Debug\FlightLib.dll
 C:\Users\Arnau Pont\Downloads\Primer proyecto info2\Primer proyecto info2\Primer Proyecto info\FlightLib\obj\Debug\FlightLib.pdb
+C:\Users\alesp\Desktop\Info II\Proyecto_T8\ProjectC#_T8\FlightLib\bin\Debug\FlightLib.dll
+C:\Users\alesp\Desktop\Info II\Proyecto_T8\ProjectC#_T8\FlightLib\bin\Debug\FlightLib.pdb
+C:\Users\alesp\Desktop\Info II\Proyecto_T8\ProjectC#_T8\FlightLib\obj\Debug\FlightLib.csproj.AssemblyReference.cache
+C:\Users\alesp\Desktop\Info II\Proyecto_T8\ProjectC#_T8\FlightLib\obj\Debug\FlightLib.csproj.CoreCompileInputs.cache
+C:\Users\alesp\Desktop\Info II\Proyecto_T8\ProjectC#_T8\FlightLib\obj\Debug\FlightLib.dll
+C:\Users\alesp\Desktop\Info II\Proyecto_T8\ProjectC#_T8\FlightLib\obj\Debug\FlightLib.pdb

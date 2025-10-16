@@ -9,13 +9,14 @@ namespace FlightLib
     public class FlightPlan
     {
         // Atributos
+
         string id; // identificador
         Position initialPosition;
         Position currentPosition; // posicion actual
         Position finalPosition; // posicion final
         double velocidad;
 
-        // Constructores
+        // Constructures
         public FlightPlan(string id, double cpx, double cpy, double fpx, double fpy, double velocidad)
         {
             this.id = id;
@@ -25,21 +26,10 @@ namespace FlightLib
             this.velocidad = velocidad;
         }
 
-        // Métodos Get y Set para cada atributo
-        public string GetId() { return id; }
-        public void SetId(string value) { id = value; }
-
-        public Position GetInitialPosition() { return initialPosition; }
-        public void SetInitialPosition(Position value) { initialPosition = value; }
-
-        public Position GetCurrentPosition() { return currentPosition; }
-        public void SetCurrentPosition(Position value) { currentPosition = value; }
-
-        public Position GetFinalPosition() { return finalPosition; }
-        public void SetFinalPosition(Position value) { finalPosition = value; }
-
-        public double GetVelocidad() { return velocidad; }
-        public void SetVelocidad(double value) { velocidad = value; }
+        // Metodos
+        public void SetVelocidad(double velocidad)
+        // setter del atributo velocidad
+        { this.velocidad = velocidad; }
 
         // Mueve el vuelo a la posición correspondiente a viajar durante el tiempo que se recibe como parámetro
         public void Mover(double tiempo)
@@ -49,7 +39,6 @@ namespace FlightLib
 
             //Calculamos las razones trigonométricas
             double hipotenusa = Math.Sqrt((finalPosition.GetX() - currentPosition.GetX()) * (finalPosition.GetX() - currentPosition.GetX()) + (finalPosition.GetY() - currentPosition.GetY()) * (finalPosition.GetY() - currentPosition.GetY()));
-            if (hipotenusa == 0) return; // Ya está en destino
             double coseno = (finalPosition.GetX() - currentPosition.GetX()) / hipotenusa;
             double seno = (finalPosition.GetY() - currentPosition.GetY()) / hipotenusa;
 
@@ -64,6 +53,7 @@ namespace FlightLib
                 currentPosition = nextPosition;
             else
                 currentPosition = finalPosition;
+
         }
 
         public void Restart()
@@ -71,26 +61,18 @@ namespace FlightLib
             currentPosition = new Position(initialPosition.GetX(), initialPosition.GetY());
         }
 
-        // Método que indica si el vuelo ha llegado a su destino
+
+        // Hacer un metodo que diga si un vuelo ha llegado a su destino
         public bool EstaDestino()
         {
-            // Usar distancia en vez de comparar referencias
-            return currentPosition.Distancia(finalPosition) < 1e-6;
+            bool resultado = false;
+            if (currentPosition == finalPosition)
+                resultado = true;
+
+            return resultado;
         }
 
-        // Método público HasArrived
-        public bool HasArrived()
-        {
-            return EstaDestino();
-        }
-
-        // Método para calcular la distancia a otro plan de vuelo
-        public double Distance(FlightPlan plan)
-        {
-            return this.currentPosition.Distancia(plan.currentPosition);
-        }
-
-        // Detecta conflicto cuando los vuelos están más cerca de la distancia de seguridad
+        // Hacer que el programa principal lea datos de dos vuelos y una distancia de seguidad y detecte el conflicto cuándo los vuelos están mas cerca de esa distancia
         public bool Conflicto(FlightPlan b, double distanciaSeguridad)
         {
             bool conclicto = false;

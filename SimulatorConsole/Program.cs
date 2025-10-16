@@ -71,7 +71,7 @@ namespace SimulatorConsole
                 // Simulación
                 // Bucle de simulación (ciclos + tiempo de ciclos)
 
-                int ciclos = 100;
+                int ciclos = 20;
                 int tiempoCiclo = 10;
                 double distanciaSeguridad = 10;
 

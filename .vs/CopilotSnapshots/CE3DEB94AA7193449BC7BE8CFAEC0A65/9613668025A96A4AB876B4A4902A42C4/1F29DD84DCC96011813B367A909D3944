@@ -9,6 +9,7 @@ namespace FlightLib
     public class FlightPlan
     {
         // Atributos
+
         string id; // identificador
         Position initialPosition;
         Position currentPosition; // posicion actual
@@ -25,21 +26,37 @@ namespace FlightLib
             this.velocidad = velocidad;
         }
 
-        // Métodos Get y Set para cada atributo
-        public string GetId() { return id; }
-        public void SetId(string value) { id = value; }
+        // Getters y Setters
+        public string Id
+        {
+            get { return id; }
+            set { id = value; }
+        }
+        public Position InitialPosition
+        {
+            get { return initialPosition; }
+            set { initialPosition = value; }
+        }
+        public Position CurrentPosition
+        {
+            get { return currentPosition; }
+            set { currentPosition = value; }
+        }
+        public Position FinalPosition
+        {
+            get { return finalPosition; }
+            set { finalPosition = value; }
+        }
+        public double Velocidad
+        {
+            get { return velocidad; }
+            set { velocidad = value; }
+        }
 
-        public Position GetInitialPosition() { return initialPosition; }
-        public void SetInitialPosition(Position value) { initialPosition = value; }
-
-        public Position GetCurrentPosition() { return currentPosition; }
-        public void SetCurrentPosition(Position value) { currentPosition = value; }
-
-        public Position GetFinalPosition() { return finalPosition; }
-        public void SetFinalPosition(Position value) { finalPosition = value; }
-
-        public double GetVelocidad() { return velocidad; }
-        public void SetVelocidad(double value) { velocidad = value; }
+        // Metodos
+        public void SetVelocidad(double velocidad)
+        // setter del atributo velocidad
+        { this.velocidad = velocidad; }
 
         // Mueve el vuelo a la posición correspondiente a viajar durante el tiempo que se recibe como parámetro
         public void Mover(double tiempo)

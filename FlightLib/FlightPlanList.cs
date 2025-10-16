@@ -23,7 +23,6 @@ namespace FlightLib
             }
         }
 
-
         public FlightPlan GetFlightPlan(int i)
         {
             if (i < 0 || i >= number)
