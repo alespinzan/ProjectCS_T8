@@ -52,6 +52,12 @@
     <Compile Include="FlightPlanForm.Designer.cs">
       <DependentUpon>FlightPlanForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="InfoVueloForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InfoVueloForm.Designer.cs">
+      <DependentUpon>InfoVueloForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
