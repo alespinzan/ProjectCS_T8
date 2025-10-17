@@ -25,7 +25,11 @@ namespace FlightLib
             this.velocidad = velocidad;
         }
 
-        // Métodos Get y Set para cada atributo
+        public FlightPlan()
+        {
+        }
+
+        //Get y Set para cada atributo
         public string GetId() { return id; }
         public void SetId(string value) { id = value; }
 
@@ -42,6 +46,7 @@ namespace FlightLib
         public void SetVelocidad(double value) { velocidad = value; }
 
         // Mueve el vuelo a la posición correspondiente a viajar durante el tiempo que se recibe como parámetro
+
         public void Mover(double tiempo)
         {
             //Calculamos la distancia recorrida en el tiempo dado

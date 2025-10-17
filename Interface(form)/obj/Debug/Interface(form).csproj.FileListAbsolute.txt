@@ -1,0 +1,17 @@
+C:\Users\alesp\Desktop\Info II\Proyecto_T8\ProjectC#_T8\Interface(form)\bin\Debug\Interface(form).exe.config
+C:\Users\alesp\Desktop\Info II\Proyecto_T8\ProjectC#_T8\Interface(form)\bin\Debug\Interface(form).exe
+C:\Users\alesp\Desktop\Info II\Proyecto_T8\ProjectC#_T8\Interface(form)\bin\Debug\Interface(form).pdb
+C:\Users\alesp\Desktop\Info II\Proyecto_T8\ProjectC#_T8\Interface(form)\bin\Debug\FlightLib.dll
+C:\Users\alesp\Desktop\Info II\Proyecto_T8\ProjectC#_T8\Interface(form)\bin\Debug\FlightLib.pdb
+C:\Users\alesp\Desktop\Info II\Proyecto_T8\ProjectC#_T8\Interface(form)\obj\Debug\Interface(form).csproj.AssemblyReference.cache
+C:\Users\alesp\Desktop\Info II\Proyecto_T8\ProjectC#_T8\Interface(form)\obj\Debug\Interface_form_.FlightPlanForm.resources
+C:\Users\alesp\Desktop\Info II\Proyecto_T8\ProjectC#_T8\Interface(form)\obj\Debug\Interface_form_.Main.resources
+C:\Users\alesp\Desktop\Info II\Proyecto_T8\ProjectC#_T8\Interface(form)\obj\Debug\Interface_form_.Properties.Resources.resources
+C:\Users\alesp\Desktop\Info II\Proyecto_T8\ProjectC#_T8\Interface(form)\obj\Debug\Interface_form_.SafetySettingsForm.resources
+C:\Users\alesp\Desktop\Info II\Proyecto_T8\ProjectC#_T8\Interface(form)\obj\Debug\Interface(form).csproj.GenerateResource.cache
+C:\Users\alesp\Desktop\Info II\Proyecto_T8\ProjectC#_T8\Interface(form)\obj\Debug\Interface(form).csproj.CoreCompileInputs.cache
+C:\Users\alesp\Desktop\Info II\Proyecto_T8\ProjectC#_T8\Interface(form)\obj\Debug\Interfac.B1A64EDC.Up2Date
+C:\Users\alesp\Desktop\Info II\Proyecto_T8\ProjectC#_T8\Interface(form)\obj\Debug\Interface(form).exe
+C:\Users\alesp\Desktop\Info II\Proyecto_T8\ProjectC#_T8\Interface(form)\obj\Debug\Interface(form).pdb
+C:\Users\alesp\Desktop\Info II\Proyecto_T8\ProjectC#_T8\Interface(form)\obj\Debug\Interface(form).exe.config
+C:\Users\alesp\Desktop\Info II\Proyecto_T8\ProjectC#_T8\Interface(form)\obj\Debug\Interface_form_.SimulationForm.resources
