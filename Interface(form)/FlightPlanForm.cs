@@ -52,17 +52,17 @@ namespace Interface_form_
 
                 double velocity1 = Convert.ToDouble(velocity1box.Text);
 
-                string[] o2 = origin1box.Text.Split(',');
+                string[] o2 = origin2box.Text.Split(',');
 
                 o2x = Convert.ToDouble(o2[0]);
                 o2y = Convert.ToDouble(o2[1]);
 
-                string[] d2 = destination1box.Text.Split(',');
+                string[] d2 = destination2box.Text.Split(',');
 
                 d2x = Convert.ToDouble(d2[0]);
                 d2y = Convert.ToDouble(d2[1]);
 
-                double velocity2 = Convert.ToDouble(velocity1box.Text);
+                double velocity2 = Convert.ToDouble(velocity2box.Text);
 
                 FlightPlan1 = new FlightPlan(id1, o1x, o1y, d1x, d1y, velocity1);
                 FlightPlan2 = new FlightPlan(id2, o2x, o2y, d2x, d2y, velocity2);

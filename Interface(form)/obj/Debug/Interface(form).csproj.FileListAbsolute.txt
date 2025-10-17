@@ -15,3 +15,20 @@ C:\Users\alesp\Desktop\Info II\Proyecto_T8\ProjectC#_T8\Interface(form)\obj\Debu
 C:\Users\alesp\Desktop\Info II\Proyecto_T8\ProjectC#_T8\Interface(form)\obj\Debug\Interface(form).pdb
 C:\Users\alesp\Desktop\Info II\Proyecto_T8\ProjectC#_T8\Interface(form)\obj\Debug\Interface(form).exe.config
 C:\Users\alesp\Desktop\Info II\Proyecto_T8\ProjectC#_T8\Interface(form)\obj\Debug\Interface_form_.SimulationForm.resources
+C:\Users\Luca1\Desktop\ProjectCS_T8-master\ProjectCS_T8-master\Interface(form)\bin\Debug\Interface(form).exe.config
+C:\Users\Luca1\Desktop\ProjectCS_T8-master\ProjectCS_T8-master\Interface(form)\bin\Debug\Interface(form).exe
+C:\Users\Luca1\Desktop\ProjectCS_T8-master\ProjectCS_T8-master\Interface(form)\bin\Debug\Interface(form).pdb
+C:\Users\Luca1\Desktop\ProjectCS_T8-master\ProjectCS_T8-master\Interface(form)\bin\Debug\FlightLib.dll
+C:\Users\Luca1\Desktop\ProjectCS_T8-master\ProjectCS_T8-master\Interface(form)\bin\Debug\FlightLib.pdb
+C:\Users\Luca1\Desktop\ProjectCS_T8-master\ProjectCS_T8-master\Interface(form)\obj\Debug\Interface(form).csproj.AssemblyReference.cache
+C:\Users\Luca1\Desktop\ProjectCS_T8-master\ProjectCS_T8-master\Interface(form)\obj\Debug\Interface(form).exe.config
+C:\Users\Luca1\Desktop\ProjectCS_T8-master\ProjectCS_T8-master\Interface(form)\obj\Debug\Interface_form_.FlightPlanForm.resources
+C:\Users\Luca1\Desktop\ProjectCS_T8-master\ProjectCS_T8-master\Interface(form)\obj\Debug\Interface_form_.Main.resources
+C:\Users\Luca1\Desktop\ProjectCS_T8-master\ProjectCS_T8-master\Interface(form)\obj\Debug\Interface_form_.Properties.Resources.resources
+C:\Users\Luca1\Desktop\ProjectCS_T8-master\ProjectCS_T8-master\Interface(form)\obj\Debug\Interface_form_.SafetySettingsForm.resources
+C:\Users\Luca1\Desktop\ProjectCS_T8-master\ProjectCS_T8-master\Interface(form)\obj\Debug\Interface_form_.SimulationForm.resources
+C:\Users\Luca1\Desktop\ProjectCS_T8-master\ProjectCS_T8-master\Interface(form)\obj\Debug\Interface(form).csproj.GenerateResource.cache
+C:\Users\Luca1\Desktop\ProjectCS_T8-master\ProjectCS_T8-master\Interface(form)\obj\Debug\Interface(form).csproj.CoreCompileInputs.cache
+C:\Users\Luca1\Desktop\ProjectCS_T8-master\ProjectCS_T8-master\Interface(form)\obj\Debug\Interfac.B1A64EDC.Up2Date
+C:\Users\Luca1\Desktop\ProjectCS_T8-master\ProjectCS_T8-master\Interface(form)\obj\Debug\Interface(form).exe
+C:\Users\Luca1\Desktop\ProjectCS_T8-master\ProjectCS_T8-master\Interface(form)\obj\Debug\Interface(form).pdb
