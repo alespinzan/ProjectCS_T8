@@ -3,24 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\alesp\\Desktop\\Info II\\Proyecto_T8\\ProjectC#_T8\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{AD32C575-0A33-4BD9-994C-4F5A1766BC94}|Interface(form)\\Interface(form).csproj|C:\\Users\\alesp\\Desktop\\Info II\\Proyecto_T8\\ProjectC#_T8\\interface(form)\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AD32C575-0A33-4BD9-994C-4F5A1766BC94}|Interface(form)\\Interface(form).csproj|solutionrelative:interface(form)\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AD32C575-0A33-4BD9-994C-4F5A1766BC94}|Interface(form)\\Interface(form).csproj|c:\\users\\alesp\\desktop\\info ii\\proyecto_t8\\projectc#_t8\\interface(form)\\flightplanform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AD32C575-0A33-4BD9-994C-4F5A1766BC94}|Interface(form)\\Interface(form).csproj|solutionrelative:interface(form)\\flightplanform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AD32C575-0A33-4BD9-994C-4F5A1766BC94}|Interface(form)\\Interface(form).csproj|c:\\users\\alesp\\desktop\\info ii\\proyecto_t8\\projectc#_t8\\interface(form)\\simulationform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{AD32C575-0A33-4BD9-994C-4F5A1766BC94}|Interface(form)\\Interface(form).csproj|C:\\Users\\alesp\\Desktop\\Info II\\Proyecto_T8\\ProjectC#_T8\\interface(form)\\simulationform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AD32C575-0A33-4BD9-994C-4F5A1766BC94}|Interface(form)\\Interface(form).csproj|solutionrelative:interface(form)\\simulationform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AD32C575-0A33-4BD9-994C-4F5A1766BC94}|Interface(form)\\Interface(form).csproj|c:\\users\\alesp\\desktop\\info ii\\proyecto_t8\\projectc#_t8\\interface(form)\\simulationform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{AD32C575-0A33-4BD9-994C-4F5A1766BC94}|Interface(form)\\Interface(form).csproj|C:\\Users\\alesp\\Desktop\\Info II\\Proyecto_T8\\ProjectC#_T8\\interface(form)\\flightplanform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AD32C575-0A33-4BD9-994C-4F5A1766BC94}|Interface(form)\\Interface(form).csproj|solutionrelative:interface(form)\\flightplanform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AD32C575-0A33-4BD9-994C-4F5A1766BC94}|Interface(form)\\Interface(form).csproj|C:\\Users\\alesp\\Desktop\\Info II\\Proyecto_T8\\ProjectC#_T8\\interface(form)\\simulationform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{AD32C575-0A33-4BD9-994C-4F5A1766BC94}|Interface(form)\\Interface(form).csproj|solutionrelative:interface(form)\\simulationform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AD32C575-0A33-4BD9-994C-4F5A1766BC94}|Interface(form)\\Interface(form).csproj|C:\\Users\\alesp\\Desktop\\Info II\\Proyecto_T8\\ProjectC#_T8\\interface(form)\\flightplanform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{AD32C575-0A33-4BD9-994C-4F5A1766BC94}|Interface(form)\\Interface(form).csproj|solutionrelative:interface(form)\\flightplanform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AD32C575-0A33-4BD9-994C-4F5A1766BC94}|Interface(form)\\Interface(form).csproj|c:\\users\\alesp\\desktop\\info ii\\proyecto_t8\\projectc#_t8\\interface(form)\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AD32C575-0A33-4BD9-994C-4F5A1766BC94}|Interface(form)\\Interface(form).csproj|solutionrelative:interface(form)\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AD32C575-0A33-4BD9-994C-4F5A1766BC94}|Interface(form)\\Interface(form).csproj|C:\\Users\\alesp\\Desktop\\Info II\\Proyecto_T8\\ProjectC#_T8\\interface(form)\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
@@ -50,24 +50,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "SimulationForm.cs",
               "DocumentMoniker": "C:\\Users\\alesp\\Desktop\\Info II\\Proyecto_T8\\ProjectC#_T8\\Interface(form)\\SimulationForm.cs",
               "RelativeDocumentMoniker": "Interface(form)\\SimulationForm.cs",
               "ToolTip": "C:\\Users\\alesp\\Desktop\\Info II\\Proyecto_T8\\ProjectC#_T8\\Interface(form)\\SimulationForm.cs",
               "RelativeToolTip": "Interface(form)\\SimulationForm.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAiwJEAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAGsAAAAAAAAAAAAkwGEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-17T00:54:06.191Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "SimulationForm.cs [Design]",
               "DocumentMoniker": "C:\\Users\\alesp\\Desktop\\Info II\\Proyecto_T8\\ProjectC#_T8\\Interface(form)\\SimulationForm.cs",
               "RelativeDocumentMoniker": "Interface(form)\\SimulationForm.cs",
@@ -85,14 +85,14 @@
               "RelativeDocumentMoniker": "Interface(form)\\FlightPlanForm.cs",
               "ToolTip": "C:\\Users\\alesp\\Desktop\\Info II\\Proyecto_T8\\ProjectC#_T8\\Interface(form)\\FlightPlanForm.cs",
               "RelativeToolTip": "Interface(form)\\FlightPlanForm.cs",
-              "ViewState": "AgIAACgAAAAAAAAAAAAuwD4AAAAuAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAD4AAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-16T21:18:30.276Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "FlightPlanForm.cs [Design]",
               "DocumentMoniker": "C:\\Users\\alesp\\Desktop\\Info II\\Proyecto_T8\\ProjectC#_T8\\Interface(form)\\FlightPlanForm.cs",
               "RelativeDocumentMoniker": "Interface(form)\\FlightPlanForm.cs",
@@ -104,13 +104,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "Main.cs",
               "DocumentMoniker": "C:\\Users\\alesp\\Desktop\\Info II\\Proyecto_T8\\ProjectC#_T8\\Interface(form)\\Main.cs",
               "RelativeDocumentMoniker": "Interface(form)\\Main.cs",
               "ToolTip": "C:\\Users\\alesp\\Desktop\\Info II\\Proyecto_T8\\ProjectC#_T8\\Interface(form)\\Main.cs",
               "RelativeToolTip": "Interface(form)\\Main.cs",
-              "ViewState": "AgIAABkAAAAAAAAAAAAQwGsAAAAQAAAAAAAAAA==",
+              "ViewState": "AgIAADMAAAAAAAAAAAAlwGoAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-16T19:33:12.187Z",
               "EditorCaption": ""
@@ -124,8 +124,7 @@
               "ToolTip": "C:\\Users\\alesp\\Desktop\\Info II\\Proyecto_T8\\ProjectC#_T8\\Interface(form)\\Main.cs [Design]",
               "RelativeToolTip": "Interface(form)\\Main.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-16T19:05:12.704Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-10-16T19:05:12.704Z"
             },
             {
               "$type": "Document",
@@ -137,8 +136,7 @@
               "RelativeToolTip": "FlightLib\\FlightPlanList.cs",
               "ViewState": "AgIAAAgAAAAAAAAAAAAxwBcAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-26T07:50:33.463Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-26T07:50:33.463Z"
             },
             {
               "$type": "Document",
@@ -150,8 +148,7 @@
               "RelativeToolTip": "FlightLib\\FlightPlan.cs",
               "ViewState": "AgIAAAkAAAAAAAAAAAAkwDIAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-25T11:42:20.726Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-25T11:42:20.726Z"
             },
             {
               "$type": "Document",
@@ -163,8 +160,7 @@
               "RelativeToolTip": "FlightLib\\Position.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-25T11:42:20.765Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-25T11:42:20.765Z"
             },
             {
               "$type": "Document",
@@ -176,8 +172,7 @@
               "RelativeToolTip": "SimulatorConsole\\Program.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAACMAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-16T21:29:11.203Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-16T21:29:11.203Z"
             }
           ]
         }

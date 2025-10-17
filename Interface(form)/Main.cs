@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using FlightLib;
+using System;
+using System.Diagnostics;
 using System.Windows.Forms;
-using FlightLib;
 
 namespace Interface_form_
 {
@@ -106,7 +100,7 @@ namespace Interface_form_
                 );
 
                 Debug.WriteLine(line);    // Ver en Output -> Debug
-                Console.WriteLine(line);  // Ver únicamente si la app tiene consola
+                Console.WriteLine(line);  // Solo visible si la app tiene consola
                 i++;
             }
         }

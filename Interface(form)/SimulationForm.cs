@@ -14,6 +14,7 @@ namespace Interface_form_
 
         public SimulationForm(FlightPlanList flightPlans)
         {
+            InitializeComponent(); // <-- Ensure designer initialization runs
             _flightPlans = flightPlans;
             this.Text = "Simulación - Espacio aéreo";
             this.ClientSize = new Size(600, 400);
