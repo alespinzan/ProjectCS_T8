@@ -46,6 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FlightGrid.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FlightGrid.Designer.cs">
+      <DependentUpon>FlightGrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FlightInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FlightInfo.Designer.cs">
+      <DependentUpon>FlightInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="FlightPlanForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +90,12 @@
     <Compile Include="SimulationForm.Designer.cs">
       <DependentUpon>SimulationForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FlightGrid.resx">
+      <DependentUpon>FlightGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FlightInfo.resx">
+      <DependentUpon>FlightInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FlightPlanForm.resx">
       <DependentUpon>FlightPlanForm.cs</DependentUpon>
     </EmbeddedResource>

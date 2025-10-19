@@ -48,6 +48,10 @@
             this.id2box = new System.Windows.Forms.TextBox();
             this.acceptButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
+            this.nonConflictbtn = new System.Windows.Forms.Button();
+            this.conflictbtn = new System.Windows.Forms.Button();
+            this.Test_Plans = new System.Windows.Forms.Label();
+            this.resetbtn = new System.Windows.Forms.Button();
             this.FlightBox1.SuspendLayout();
             this.FlightBox2.SuspendLayout();
             this.SuspendLayout();
@@ -63,11 +67,9 @@
             this.FlightBox1.Controls.Add(this.origin1box);
             this.FlightBox1.Controls.Add(this.id1box);
             this.FlightBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.FlightBox1.Location = new System.Drawing.Point(73, 26);
-            this.FlightBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.FlightBox1.Location = new System.Drawing.Point(100, 39);
             this.FlightBox1.Name = "FlightBox1";
-            this.FlightBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.FlightBox1.Size = new System.Drawing.Size(433, 130);
+            this.FlightBox1.Size = new System.Drawing.Size(595, 195);
             this.FlightBox1.TabIndex = 0;
             this.FlightBox1.TabStop = false;
             this.FlightBox1.Text = "FlightPlan1";
@@ -76,8 +78,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.label7.Location = new System.Drawing.Point(325, 40);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label7.Location = new System.Drawing.Point(447, 60);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(76, 24);
             this.label7.TabIndex = 7;
@@ -85,18 +86,16 @@
             // 
             // velocity1box
             // 
-            this.velocity1box.Location = new System.Drawing.Point(327, 61);
-            this.velocity1box.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.velocity1box.Location = new System.Drawing.Point(450, 92);
             this.velocity1box.Name = "velocity1box";
-            this.velocity1box.Size = new System.Drawing.Size(74, 34);
+            this.velocity1box.Size = new System.Drawing.Size(100, 34);
             this.velocity1box.TabIndex = 6;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.label3.Location = new System.Drawing.Point(220, 40);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(302, 60);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(102, 24);
             this.label3.TabIndex = 5;
@@ -106,8 +105,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.label2.Location = new System.Drawing.Point(128, 40);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(176, 60);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(61, 24);
             this.label2.TabIndex = 4;
@@ -117,8 +115,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.label1.Location = new System.Drawing.Point(25, 40);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(34, 60);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(27, 24);
             this.label1.TabIndex = 3;
@@ -126,26 +123,23 @@
             // 
             // destination1box
             // 
-            this.destination1box.Location = new System.Drawing.Point(221, 61);
-            this.destination1box.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.destination1box.Location = new System.Drawing.Point(304, 92);
             this.destination1box.Name = "destination1box";
-            this.destination1box.Size = new System.Drawing.Size(74, 34);
+            this.destination1box.Size = new System.Drawing.Size(100, 34);
             this.destination1box.TabIndex = 2;
             // 
             // origin1box
             // 
-            this.origin1box.Location = new System.Drawing.Point(123, 61);
-            this.origin1box.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.origin1box.Location = new System.Drawing.Point(169, 92);
             this.origin1box.Name = "origin1box";
-            this.origin1box.Size = new System.Drawing.Size(74, 34);
+            this.origin1box.Size = new System.Drawing.Size(100, 34);
             this.origin1box.TabIndex = 1;
             // 
             // id1box
             // 
-            this.id1box.Location = new System.Drawing.Point(21, 61);
-            this.id1box.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.id1box.Location = new System.Drawing.Point(29, 92);
             this.id1box.Name = "id1box";
-            this.id1box.Size = new System.Drawing.Size(74, 34);
+            this.id1box.Size = new System.Drawing.Size(100, 34);
             this.id1box.TabIndex = 0;
             // 
             // FlightBox2
@@ -159,11 +153,9 @@
             this.FlightBox2.Controls.Add(this.origin2box);
             this.FlightBox2.Controls.Add(this.id2box);
             this.FlightBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.FlightBox2.Location = new System.Drawing.Point(73, 184);
-            this.FlightBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.FlightBox2.Location = new System.Drawing.Point(100, 276);
             this.FlightBox2.Name = "FlightBox2";
-            this.FlightBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.FlightBox2.Size = new System.Drawing.Size(433, 127);
+            this.FlightBox2.Size = new System.Drawing.Size(595, 190);
             this.FlightBox2.TabIndex = 1;
             this.FlightBox2.TabStop = false;
             this.FlightBox2.Text = "FlightPlan2";
@@ -172,8 +164,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.label8.Location = new System.Drawing.Point(327, 40);
-            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label8.Location = new System.Drawing.Point(450, 60);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(76, 24);
             this.label8.TabIndex = 8;
@@ -181,18 +172,16 @@
             // 
             // velocity2box
             // 
-            this.velocity2box.Location = new System.Drawing.Point(328, 61);
-            this.velocity2box.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.velocity2box.Location = new System.Drawing.Point(451, 92);
             this.velocity2box.Name = "velocity2box";
-            this.velocity2box.Size = new System.Drawing.Size(74, 34);
+            this.velocity2box.Size = new System.Drawing.Size(100, 34);
             this.velocity2box.TabIndex = 7;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.label6.Location = new System.Drawing.Point(218, 40);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Location = new System.Drawing.Point(300, 60);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(102, 24);
             this.label6.TabIndex = 6;
@@ -202,8 +191,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.label5.Location = new System.Drawing.Point(128, 40);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Location = new System.Drawing.Point(176, 60);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(61, 24);
             this.label5.TabIndex = 5;
@@ -213,8 +201,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.label4.Location = new System.Drawing.Point(25, 40);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Location = new System.Drawing.Point(34, 60);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(27, 24);
             this.label4.TabIndex = 4;
@@ -222,34 +209,30 @@
             // 
             // destination2box
             // 
-            this.destination2box.Location = new System.Drawing.Point(221, 61);
-            this.destination2box.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.destination2box.Location = new System.Drawing.Point(304, 92);
             this.destination2box.Name = "destination2box";
-            this.destination2box.Size = new System.Drawing.Size(74, 34);
+            this.destination2box.Size = new System.Drawing.Size(100, 34);
             this.destination2box.TabIndex = 2;
             // 
             // origin2box
             // 
-            this.origin2box.Location = new System.Drawing.Point(123, 61);
-            this.origin2box.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.origin2box.Location = new System.Drawing.Point(169, 92);
             this.origin2box.Name = "origin2box";
-            this.origin2box.Size = new System.Drawing.Size(74, 34);
+            this.origin2box.Size = new System.Drawing.Size(100, 34);
             this.origin2box.TabIndex = 1;
             // 
             // id2box
             // 
-            this.id2box.Location = new System.Drawing.Point(21, 61);
-            this.id2box.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.id2box.Location = new System.Drawing.Point(29, 92);
             this.id2box.Name = "id2box";
-            this.id2box.Size = new System.Drawing.Size(74, 34);
+            this.id2box.Size = new System.Drawing.Size(100, 34);
             this.id2box.TabIndex = 0;
             // 
             // acceptButton
             // 
-            this.acceptButton.Location = new System.Drawing.Point(529, 138);
-            this.acceptButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.acceptButton.Location = new System.Drawing.Point(727, 184);
             this.acceptButton.Name = "acceptButton";
-            this.acceptButton.Size = new System.Drawing.Size(93, 33);
+            this.acceptButton.Size = new System.Drawing.Size(128, 50);
             this.acceptButton.TabIndex = 2;
             this.acceptButton.Text = "Accept";
             this.acceptButton.UseVisualStyleBackColor = true;
@@ -257,24 +240,65 @@
             // 
             // cancelButton
             // 
-            this.cancelButton.Location = new System.Drawing.Point(529, 190);
-            this.cancelButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cancelButton.Location = new System.Drawing.Point(727, 263);
             this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(93, 33);
+            this.cancelButton.Size = new System.Drawing.Size(128, 50);
             this.cancelButton.TabIndex = 3;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
             // 
+            // nonConflictbtn
+            // 
+            this.nonConflictbtn.Location = new System.Drawing.Point(100, 526);
+            this.nonConflictbtn.Name = "nonConflictbtn";
+            this.nonConflictbtn.Size = new System.Drawing.Size(129, 51);
+            this.nonConflictbtn.TabIndex = 4;
+            this.nonConflictbtn.Text = "NonConflict";
+            this.nonConflictbtn.UseVisualStyleBackColor = true;
+            this.nonConflictbtn.Click += new System.EventHandler(this.nonConflictbtn_Click);
+            // 
+            // conflictbtn
+            // 
+            this.conflictbtn.Location = new System.Drawing.Point(280, 526);
+            this.conflictbtn.Name = "conflictbtn";
+            this.conflictbtn.Size = new System.Drawing.Size(122, 51);
+            this.conflictbtn.TabIndex = 5;
+            this.conflictbtn.Text = "Conflict";
+            this.conflictbtn.UseVisualStyleBackColor = true;
+            this.conflictbtn.Click += new System.EventHandler(this.conflictbtn_Click);
+            // 
+            // Test_Plans
+            // 
+            this.Test_Plans.AutoSize = true;
+            this.Test_Plans.Location = new System.Drawing.Point(108, 488);
+            this.Test_Plans.Name = "Test_Plans";
+            this.Test_Plans.Size = new System.Drawing.Size(103, 25);
+            this.Test_Plans.TabIndex = 6;
+            this.Test_Plans.Text = "Test plans";
+            // 
+            // resetbtn
+            // 
+            this.resetbtn.Location = new System.Drawing.Point(727, 352);
+            this.resetbtn.Name = "resetbtn";
+            this.resetbtn.Size = new System.Drawing.Size(128, 50);
+            this.resetbtn.TabIndex = 7;
+            this.resetbtn.Text = "Reset";
+            this.resetbtn.UseVisualStyleBackColor = true;
+            this.resetbtn.Click += new System.EventHandler(this.resetbtn_Click);
+            // 
             // FlightPlanForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(802, 447);
+            this.ClientSize = new System.Drawing.Size(1103, 670);
+            this.Controls.Add(this.resetbtn);
+            this.Controls.Add(this.Test_Plans);
+            this.Controls.Add(this.conflictbtn);
+            this.Controls.Add(this.nonConflictbtn);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.acceptButton);
             this.Controls.Add(this.FlightBox2);
             this.Controls.Add(this.FlightBox1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FlightPlanForm";
             this.Text = "FlightplanForm";
             this.FlightBox1.ResumeLayout(false);
@@ -282,6 +306,7 @@
             this.FlightBox2.ResumeLayout(false);
             this.FlightBox2.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -307,5 +332,9 @@
         private System.Windows.Forms.TextBox velocity1box;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox velocity2box;
+        private System.Windows.Forms.Button nonConflictbtn;
+        private System.Windows.Forms.Button conflictbtn;
+        private System.Windows.Forms.Label Test_Plans;
+        private System.Windows.Forms.Button resetbtn;
     }
 }

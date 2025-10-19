@@ -11,6 +11,12 @@ namespace FlightLib
         FlightPlan[] vector = new FlightPlan[10];
         int number = 0;
 
+        public int getnum()
+        {
+            return number;
+        }
+        
+
         public int AddFlightPlan(FlightPlan p)
         {
             if (number == 10)
@@ -43,6 +49,12 @@ namespace FlightLib
                 i++;
             }
 
+        }
+        public void Clear()
+        {
+            for (int i = 0; i < number; i++)
+                vector[i] = null;
+            number = 0;
         }
 
         public void EscribeConsola()
