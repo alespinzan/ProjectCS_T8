@@ -23,11 +23,12 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.cyclebtn = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.startbtn = new System.Windows.Forms.Button();
             this.stopbtn = new System.Windows.Forms.Button();
+            this.startbtn = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.infobtn = new System.Windows.Forms.Button();
             this.conflictbtn = new System.Windows.Forms.Button();
+            this.restartbtn = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,24 +52,15 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.restartbtn);
             this.groupBox1.Controls.Add(this.stopbtn);
             this.groupBox1.Controls.Add(this.startbtn);
             this.groupBox1.Location = new System.Drawing.Point(1355, 166);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(156, 210);
+            this.groupBox1.Size = new System.Drawing.Size(156, 292);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "AutoSim";
-            // 
-            // startbtn
-            // 
-            this.startbtn.Location = new System.Drawing.Point(16, 43);
-            this.startbtn.Name = "startbtn";
-            this.startbtn.Size = new System.Drawing.Size(118, 52);
-            this.startbtn.TabIndex = 0;
-            this.startbtn.Text = "Start";
-            this.startbtn.UseVisualStyleBackColor = true;
-            this.startbtn.Click += new System.EventHandler(this.startbtn_Click);
             // 
             // stopbtn
             // 
@@ -80,13 +72,23 @@
             this.stopbtn.UseVisualStyleBackColor = true;
             this.stopbtn.Click += new System.EventHandler(this.stopbtn_Click);
             // 
+            // startbtn
+            // 
+            this.startbtn.Location = new System.Drawing.Point(16, 43);
+            this.startbtn.Name = "startbtn";
+            this.startbtn.Size = new System.Drawing.Size(118, 52);
+            this.startbtn.TabIndex = 0;
+            this.startbtn.Text = "Start";
+            this.startbtn.UseVisualStyleBackColor = true;
+            this.startbtn.Click += new System.EventHandler(this.startbtn_Click);
+            // 
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // infobtn
             // 
-            this.infobtn.Location = new System.Drawing.Point(1355, 419);
+            this.infobtn.Location = new System.Drawing.Point(1355, 551);
             this.infobtn.Name = "infobtn";
             this.infobtn.Size = new System.Drawing.Size(156, 56);
             this.infobtn.TabIndex = 3;
@@ -96,13 +98,22 @@
             // 
             // conflictbtn
             // 
-            this.conflictbtn.Location = new System.Drawing.Point(1355, 505);
+            this.conflictbtn.Location = new System.Drawing.Point(1355, 637);
             this.conflictbtn.Name = "conflictbtn";
             this.conflictbtn.Size = new System.Drawing.Size(156, 56);
             this.conflictbtn.TabIndex = 4;
             this.conflictbtn.Text = "Check Conflict";
             this.conflictbtn.UseVisualStyleBackColor = true;
             this.conflictbtn.Click += new System.EventHandler(this.conflictbtn_Click);
+            // 
+            // restartbtn
+            // 
+            this.restartbtn.Location = new System.Drawing.Point(16, 207);
+            this.restartbtn.Name = "restartbtn";
+            this.restartbtn.Size = new System.Drawing.Size(118, 52);
+            this.restartbtn.TabIndex = 2;
+            this.restartbtn.Text = "Restart";
+            this.restartbtn.UseVisualStyleBackColor = true;
             // 
             // SimulationForm
             // 
@@ -133,5 +144,6 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button infobtn;
         private System.Windows.Forms.Button conflictbtn;
+        private System.Windows.Forms.Button restartbtn;
     }
 }

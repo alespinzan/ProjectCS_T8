@@ -50,16 +50,26 @@ namespace Interface_form_
             // Obtener los dos primeros planes guardados (si existen)
             FlightPlan fp1 = flightPlans.GetFlightPlan(0);
             FlightPlan fp2 = flightPlans.GetFlightPlan(1);
-
-            if (fp1 == null || fp2 == null)
+            try
             {
-                MessageBox.Show("Debe añadir al menos dos planes de vuelo antes de iniciar la simulación.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
+                if (fp1 == null || fp2 == null)
+                {
+                    MessageBox.Show("Debe añadir al menos dos planes de vuelo antes de iniciar la simulación.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
 
-            // Abrir formulario de simulación (modal)
-            SimulationForm form = new SimulationForm(flightPlans, cycleTime, securityDistance);
-            form.ShowDialog(this);
+                // Abrir formulario de simulación (modal)
+                SimulationForm form = new SimulationForm(flightPlans, cycleTime, securityDistance);
+                form.ShowDialog(this);
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Security setup missing");
+            }
+            
+
+            
            
         }
 
