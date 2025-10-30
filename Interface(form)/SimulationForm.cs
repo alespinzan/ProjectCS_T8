@@ -49,8 +49,18 @@ namespace Interface_form_
 
                 p.Location = new Point(x, y);
                 p.SizeMode = PictureBoxSizeMode.StretchImage;
-                Bitmap image = new Bitmap("Punto.png");
-                p.Image = (Image)image;
+                // Crear un bitmap del tamaño del PictureBox
+                Bitmap bmp = new Bitmap(p.Width, p.Height);
+
+                // Dibujar un círculo rojo dentro del PictureBox
+                using (Graphics g = Graphics.FromImage(bmp))
+                {
+                    g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+                    g.FillEllipse(Brushes.Red, 0, 0, p.Width, p.Height);
+                }
+
+                // Asignar el bitmap al PictureBox
+                p.Image = bmp;
 
                 p.Tag = i;
                 p.Click += new System.EventHandler(this.flightInfo);
@@ -130,7 +140,7 @@ namespace Interface_form_
                     float centerX = (float)current.GetX();
                     float centerY = panel1.Height - (float)current.GetY();
 
-                    float radius = (float)_securityDistance/2;
+                    float radius = (float)_securityDistance / 2;
                     float ellipseX = centerX - radius;
                     float ellipseY = centerY - radius;
 
@@ -138,7 +148,6 @@ namespace Interface_form_
                     e.Graphics.DrawEllipse(circlePen, ellipseX, ellipseY, radius * 2, radius * 2);
                 }
             }
-            
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -163,12 +172,10 @@ namespace Interface_form_
                 MessageBox.Show("Conflicto");
                 simulationTimer.Stop();
             }
-            
         }
 
         private void startbtn_Click(object sender, EventArgs e)
         {
-            // Check for predicted conflicts before starting
             int numFlights = _flightPlans.getnum();
             bool conflictPredicted = false;
             int conflictA = -1, conflictB = -1;
@@ -202,7 +209,6 @@ namespace Interface_form_
 
                 if (result == DialogResult.Yes)
                 {
-                    // Try to resolve by adjusting the speed of the second flight
                     (bool resolved, double cspeed) = _flightPlans.ResolveConflictBySpeed(_flightPlans.GetFlightPlan(conflictA), _flightPlans.GetFlightPlan(conflictB), _securityDistance);
                     if (resolved)
                     {
@@ -221,14 +227,11 @@ namespace Interface_form_
                             MessageBoxIcon.Error);
                     }
                 }
-
-                // If No, continue as usual
             }
 
-            simulationTimer.Interval = (int)(_cycleTime * 1000); // Update interval in case _cycleTime changed
+            simulationTimer.Interval = (int)(_cycleTime * 1000);
             simulationTimer.Start();
         }
-
 
         private void stopbtn_Click(object sender, EventArgs e)
         {
@@ -236,13 +239,11 @@ namespace Interface_form_
             panel1.Invalidate();
         }
 
-
         private void infobtn_Click(object sender, EventArgs e)
         {
             FlightGrid form = new FlightGrid(_flightPlans);
             form.ShowDialog(this);
         }
-
 
         private void conflictbtn_Click(object sender, EventArgs e)
         {
@@ -257,7 +258,6 @@ namespace Interface_form_
                 {
                     FlightPlan b = _flightPlans.GetFlightPlan(j);
 
-                    // Predict if their paths will ever be closer than _securityDistance
                     if (_flightPlans.predictConflict(a, b, _securityDistance))
                     {
                         message += $"Se predice conflicto entre los vuelos {a.GetId()} y {b.GetId()}.\n";
@@ -274,9 +274,34 @@ namespace Interface_form_
             {
                 MessageBox.Show("No se predicen conflictos futuros entre los vuelos.", "Sin conflicto", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-
-
         }
 
+        // ===========================
+        // MÉTODO NUEVO: Reiniciar simulación
+        // ===========================
+        public void RestartSimulation()
+        {
+            simulationTimer.Stop();
+
+            for (int i = 0; i < _flightPlans.getnum(); i++)
+            {
+                FlightPlan f = _flightPlans.GetFlightPlan(i);
+                f.Restart();
+
+                int x = (int)f.GetCurrentPosition().GetX() - flights[i].Width / 2;
+                int y = panel1.Height - (int)f.GetCurrentPosition().GetY() - flights[i].Height / 2;
+                flights[i].Location = new Point(x, y);
+                flightLabels[i].Location = new Point(x + flights[i].Width, y);
+            }
+
+            panel1.Invalidate();
+        }
+
+        private void editspeedsbtn_Click(object sender, EventArgs e)
+        {
+            EditSpeedsForm editForm = new EditSpeedsForm(_flightPlans);
+            editForm.Owner = this; // Esto permite que EditSpeedsForm llame a RestartSimulation()
+            editForm.ShowDialog();
+        }
     }
 }

@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EditSpeedsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditSpeedsForm.Designer.cs">
+      <DependentUpon>EditSpeedsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="FlightGrid.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,6 +96,9 @@
     <Compile Include="SimulationForm.Designer.cs">
       <DependentUpon>SimulationForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="EditSpeedsForm.resx">
+      <DependentUpon>EditSpeedsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FlightGrid.resx">
       <DependentUpon>FlightGrid.cs</DependentUpon>
     </EmbeddedResource>
