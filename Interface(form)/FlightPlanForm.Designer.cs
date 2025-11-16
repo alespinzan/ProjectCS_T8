@@ -52,6 +52,8 @@
             this.conflictbtn = new System.Windows.Forms.Button();
             this.Test_Plans = new System.Windows.Forms.Label();
             this.resetbtn = new System.Windows.Forms.Button();
+            this.browcebtn = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
             this.FlightBox1.SuspendLayout();
             this.FlightBox2.SuspendLayout();
             this.SuspendLayout();
@@ -153,7 +155,7 @@
             this.FlightBox2.Controls.Add(this.origin2box);
             this.FlightBox2.Controls.Add(this.id2box);
             this.FlightBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.FlightBox2.Location = new System.Drawing.Point(100, 276);
+            this.FlightBox2.Location = new System.Drawing.Point(100, 251);
             this.FlightBox2.Name = "FlightBox2";
             this.FlightBox2.Size = new System.Drawing.Size(595, 190);
             this.FlightBox2.TabIndex = 1;
@@ -230,7 +232,7 @@
             // 
             // acceptButton
             // 
-            this.acceptButton.Location = new System.Drawing.Point(727, 184);
+            this.acceptButton.Location = new System.Drawing.Point(790, 54);
             this.acceptButton.Name = "acceptButton";
             this.acceptButton.Size = new System.Drawing.Size(128, 50);
             this.acceptButton.TabIndex = 2;
@@ -240,7 +242,7 @@
             // 
             // cancelButton
             // 
-            this.cancelButton.Location = new System.Drawing.Point(727, 263);
+            this.cancelButton.Location = new System.Drawing.Point(790, 133);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(128, 50);
             this.cancelButton.TabIndex = 3;
@@ -249,7 +251,7 @@
             // 
             // nonConflictbtn
             // 
-            this.nonConflictbtn.Location = new System.Drawing.Point(100, 526);
+            this.nonConflictbtn.Location = new System.Drawing.Point(789, 337);
             this.nonConflictbtn.Name = "nonConflictbtn";
             this.nonConflictbtn.Size = new System.Drawing.Size(129, 51);
             this.nonConflictbtn.TabIndex = 4;
@@ -259,9 +261,9 @@
             // 
             // conflictbtn
             // 
-            this.conflictbtn.Location = new System.Drawing.Point(280, 526);
+            this.conflictbtn.Location = new System.Drawing.Point(790, 414);
             this.conflictbtn.Name = "conflictbtn";
-            this.conflictbtn.Size = new System.Drawing.Size(122, 51);
+            this.conflictbtn.Size = new System.Drawing.Size(128, 51);
             this.conflictbtn.TabIndex = 5;
             this.conflictbtn.Text = "Conflict";
             this.conflictbtn.UseVisualStyleBackColor = true;
@@ -270,7 +272,7 @@
             // Test_Plans
             // 
             this.Test_Plans.AutoSize = true;
-            this.Test_Plans.Location = new System.Drawing.Point(108, 488);
+            this.Test_Plans.Location = new System.Drawing.Point(785, 297);
             this.Test_Plans.Name = "Test_Plans";
             this.Test_Plans.Size = new System.Drawing.Size(103, 25);
             this.Test_Plans.TabIndex = 6;
@@ -278,7 +280,7 @@
             // 
             // resetbtn
             // 
-            this.resetbtn.Location = new System.Drawing.Point(727, 352);
+            this.resetbtn.Location = new System.Drawing.Point(790, 222);
             this.resetbtn.Name = "resetbtn";
             this.resetbtn.Size = new System.Drawing.Size(128, 50);
             this.resetbtn.TabIndex = 7;
@@ -286,11 +288,32 @@
             this.resetbtn.UseVisualStyleBackColor = true;
             this.resetbtn.Click += new System.EventHandler(this.resetbtn_Click);
             // 
+            // browcebtn
+            // 
+            this.browcebtn.Location = new System.Drawing.Point(101, 507);
+            this.browcebtn.Name = "browcebtn";
+            this.browcebtn.Size = new System.Drawing.Size(128, 51);
+            this.browcebtn.TabIndex = 8;
+            this.browcebtn.Text = "Browce";
+            this.browcebtn.UseVisualStyleBackColor = true;
+            this.browcebtn.Click += new System.EventHandler(this.browcebtn_Click);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(95, 468);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(128, 25);
+            this.label9.TabIndex = 9;
+            this.label9.Text = "Load from file";
+            // 
             // FlightPlanForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1103, 670);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.browcebtn);
             this.Controls.Add(this.resetbtn);
             this.Controls.Add(this.Test_Plans);
             this.Controls.Add(this.conflictbtn);
@@ -336,5 +359,7 @@
         private System.Windows.Forms.Button conflictbtn;
         private System.Windows.Forms.Label Test_Plans;
         private System.Windows.Forms.Button resetbtn;
+        private System.Windows.Forms.Button browcebtn;
+        private System.Windows.Forms.Label label9;
     }
 }

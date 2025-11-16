@@ -32,23 +32,6 @@ C:\Users\Luca1\Desktop\ProjectCS_T8-master\ProjectCS_T8-master\Interface(form)\o
 C:\Users\Luca1\Desktop\ProjectCS_T8-master\ProjectCS_T8-master\Interface(form)\obj\Debug\Interfac.B1A64EDC.Up2Date
 C:\Users\Luca1\Desktop\ProjectCS_T8-master\ProjectCS_T8-master\Interface(form)\obj\Debug\Interface(form).exe
 C:\Users\Luca1\Desktop\ProjectCS_T8-master\ProjectCS_T8-master\Interface(form)\obj\Debug\Interface(form).pdb
-C:\Users\TrendingPC\OneDrive\Escritorio\ProjectCS_T8-master\Interface(form)\obj\Debug\Interface(form).csproj.AssemblyReference.cache
-C:\Users\TrendingPC\OneDrive\Escritorio\ProjectCS_T8-master\Interface(form)\obj\Debug\Interface(form).exe.config
-C:\Users\TrendingPC\OneDrive\Escritorio\ProjectCS_T8-master\Interface(form)\obj\Debug\Interface_form_.FlightPlanForm.resources
-C:\Users\TrendingPC\OneDrive\Escritorio\ProjectCS_T8-master\Interface(form)\obj\Debug\Interface_form_.Main.resources
-C:\Users\TrendingPC\OneDrive\Escritorio\ProjectCS_T8-master\Interface(form)\obj\Debug\Interface_form_.Properties.Resources.resources
-C:\Users\TrendingPC\OneDrive\Escritorio\ProjectCS_T8-master\Interface(form)\obj\Debug\Interface_form_.SafetySettingsForm.resources
-C:\Users\TrendingPC\OneDrive\Escritorio\ProjectCS_T8-master\Interface(form)\obj\Debug\Interface_form_.SimulationForm.resources
-C:\Users\TrendingPC\OneDrive\Escritorio\ProjectCS_T8-master\Interface(form)\obj\Debug\Interface(form).csproj.GenerateResource.cache
-C:\Users\TrendingPC\OneDrive\Escritorio\ProjectCS_T8-master\Interface(form)\obj\Debug\Interface(form).csproj.CoreCompileInputs.cache
-C:\Users\TrendingPC\OneDrive\Escritorio\ProjectCS_T8-master\Interface(form)\obj\Debug\Interface(form).exe
-C:\Users\TrendingPC\OneDrive\Escritorio\ProjectCS_T8-master\Interface(form)\obj\Debug\Interface(form).pdb
-C:\Users\TrendingPC\OneDrive\Escritorio\ProjectCS_T8-master\Interface(form)\bin\Debug\Interface(form).exe.config
-C:\Users\TrendingPC\OneDrive\Escritorio\ProjectCS_T8-master\Interface(form)\bin\Debug\Interface(form).exe
-C:\Users\TrendingPC\OneDrive\Escritorio\ProjectCS_T8-master\Interface(form)\bin\Debug\Interface(form).pdb
-C:\Users\TrendingPC\OneDrive\Escritorio\ProjectCS_T8-master\Interface(form)\bin\Debug\FlightLib.dll
-C:\Users\TrendingPC\OneDrive\Escritorio\ProjectCS_T8-master\Interface(form)\bin\Debug\FlightLib.pdb
-C:\Users\TrendingPC\OneDrive\Escritorio\ProjectCS_T8-master\Interface(form)\obj\Debug\Interfac.B1A64EDC.Up2Date
 C:\Users\alesp\Desktop\Info II\Proyecto_T8\ProjectCS_T8\Interface(form)\bin\Debug\Interface(form).exe.config
 C:\Users\alesp\Desktop\Info II\Proyecto_T8\ProjectCS_T8\Interface(form)\bin\Debug\Interface(form).exe
 C:\Users\alesp\Desktop\Info II\Proyecto_T8\ProjectCS_T8\Interface(form)\bin\Debug\FlightLib.dll
@@ -88,3 +71,62 @@ C:\Users\Arnau Pont\Desktop\Repositorio\ProjectCS_T8\Interface(form)\obj\Debug\I
 C:\Users\Arnau Pont\Desktop\Repositorio\ProjectCS_T8\Interface(form)\obj\Debug\Interfac.B1A64EDC.Up2Date
 C:\Users\Arnau Pont\Desktop\Repositorio\ProjectCS_T8\Interface(form)\obj\Debug\Interface(form).exe
 C:\Users\Arnau Pont\Desktop\Repositorio\ProjectCS_T8\Interface(form)\obj\Debug\Interface(form).pdb
+C:\Users\TrendingPC\OneDrive\Escritorio\ProjectCS_T8-master\Interface(form)\obj\Debug\Interface(form).csproj.AssemblyReference.cache
+C:\Users\TrendingPC\OneDrive\Escritorio\ProjectCS_T8-master\Interface(form)\obj\Debug\Interface_form_.EditSpeedsForm.resources
+C:\Users\TrendingPC\OneDrive\Escritorio\ProjectCS_T8-master\Interface(form)\obj\Debug\Interface_form_.FlightGrid.resources
+C:\Users\TrendingPC\OneDrive\Escritorio\ProjectCS_T8-master\Interface(form)\obj\Debug\Interface_form_.FlightInfo.resources
+C:\Users\TrendingPC\OneDrive\Escritorio\ProjectCS_T8-master\Interface(form)\obj\Debug\Interface_form_.FlightPlanForm.resources
+C:\Users\TrendingPC\OneDrive\Escritorio\ProjectCS_T8-master\Interface(form)\obj\Debug\Interface_form_.Main.resources
+C:\Users\TrendingPC\OneDrive\Escritorio\ProjectCS_T8-master\Interface(form)\obj\Debug\Interface_form_.Properties.Resources.resources
+C:\Users\TrendingPC\OneDrive\Escritorio\ProjectCS_T8-master\Interface(form)\obj\Debug\Interface_form_.SafetySettingsForm.resources
+C:\Users\TrendingPC\OneDrive\Escritorio\ProjectCS_T8-master\Interface(form)\obj\Debug\Interface_form_.SimulationForm.resources
+C:\Users\TrendingPC\OneDrive\Escritorio\ProjectCS_T8-master\Interface(form)\obj\Debug\Interface(form).csproj.GenerateResource.cache
+C:\Users\TrendingPC\OneDrive\Escritorio\ProjectCS_T8-master\Interface(form)\obj\Debug\Interface(form).csproj.CoreCompileInputs.cache
+C:\Users\TrendingPC\OneDrive\Escritorio\ProjectCS_T8-master\Interface(form)\bin\Debug\Interface(form).exe.config
+C:\Users\TrendingPC\OneDrive\Escritorio\ProjectCS_T8-master\Interface(form)\bin\Debug\Interface(form).exe
+C:\Users\TrendingPC\OneDrive\Escritorio\ProjectCS_T8-master\Interface(form)\bin\Debug\Interface(form).pdb
+C:\Users\TrendingPC\OneDrive\Escritorio\ProjectCS_T8-master\Interface(form)\bin\Debug\FlightLib.dll
+C:\Users\TrendingPC\OneDrive\Escritorio\ProjectCS_T8-master\Interface(form)\bin\Debug\FlightLib.pdb
+C:\Users\TrendingPC\OneDrive\Escritorio\ProjectCS_T8-master\Interface(form)\obj\Debug\Interfac.B1A64EDC.Up2Date
+C:\Users\TrendingPC\OneDrive\Escritorio\ProjectCS_T8-master\Interface(form)\obj\Debug\Interface(form).exe
+C:\Users\TrendingPC\OneDrive\Escritorio\ProjectCS_T8-master\Interface(form)\obj\Debug\Interface(form).pdb
+C:\Users\Arnau Pont\Downloads\ProjectCS_T8-master (3) (1)\ProjectCS_T8-master\Interface(form)\bin\Debug\Interface(form).exe.config
+C:\Users\Arnau Pont\Downloads\ProjectCS_T8-master (3) (1)\ProjectCS_T8-master\Interface(form)\bin\Debug\Interface(form).exe
+C:\Users\Arnau Pont\Downloads\ProjectCS_T8-master (3) (1)\ProjectCS_T8-master\Interface(form)\bin\Debug\Interface(form).pdb
+C:\Users\Arnau Pont\Downloads\ProjectCS_T8-master (3) (1)\ProjectCS_T8-master\Interface(form)\bin\Debug\FlightLib.dll
+C:\Users\Arnau Pont\Downloads\ProjectCS_T8-master (3) (1)\ProjectCS_T8-master\Interface(form)\bin\Debug\FlightLib.pdb
+C:\Users\Arnau Pont\Downloads\ProjectCS_T8-master (3) (1)\ProjectCS_T8-master\Interface(form)\obj\Debug\Interface(form).csproj.AssemblyReference.cache
+C:\Users\Arnau Pont\Downloads\ProjectCS_T8-master (3) (1)\ProjectCS_T8-master\Interface(form)\obj\Debug\Interface(form).exe.config
+C:\Users\Arnau Pont\Downloads\ProjectCS_T8-master (3) (1)\ProjectCS_T8-master\Interface(form)\obj\Debug\Interface_form_.EditSpeedsForm.resources
+C:\Users\Arnau Pont\Downloads\ProjectCS_T8-master (3) (1)\ProjectCS_T8-master\Interface(form)\obj\Debug\Interface_form_.FlightGrid.resources
+C:\Users\Arnau Pont\Downloads\ProjectCS_T8-master (3) (1)\ProjectCS_T8-master\Interface(form)\obj\Debug\Interface_form_.FlightInfo.resources
+C:\Users\Arnau Pont\Downloads\ProjectCS_T8-master (3) (1)\ProjectCS_T8-master\Interface(form)\obj\Debug\Interface_form_.FlightPlanForm.resources
+C:\Users\Arnau Pont\Downloads\ProjectCS_T8-master (3) (1)\ProjectCS_T8-master\Interface(form)\obj\Debug\Interface_form_.Main.resources
+C:\Users\Arnau Pont\Downloads\ProjectCS_T8-master (3) (1)\ProjectCS_T8-master\Interface(form)\obj\Debug\Interface_form_.Properties.Resources.resources
+C:\Users\Arnau Pont\Downloads\ProjectCS_T8-master (3) (1)\ProjectCS_T8-master\Interface(form)\obj\Debug\Interface_form_.SafetySettingsForm.resources
+C:\Users\Arnau Pont\Downloads\ProjectCS_T8-master (3) (1)\ProjectCS_T8-master\Interface(form)\obj\Debug\Interface_form_.SimulationForm.resources
+C:\Users\Arnau Pont\Downloads\ProjectCS_T8-master (3) (1)\ProjectCS_T8-master\Interface(form)\obj\Debug\Interface(form).csproj.GenerateResource.cache
+C:\Users\Arnau Pont\Downloads\ProjectCS_T8-master (3) (1)\ProjectCS_T8-master\Interface(form)\obj\Debug\Interface(form).csproj.CoreCompileInputs.cache
+C:\Users\Arnau Pont\Downloads\ProjectCS_T8-master (3) (1)\ProjectCS_T8-master\Interface(form)\obj\Debug\Interfac.B1A64EDC.Up2Date
+C:\Users\Arnau Pont\Downloads\ProjectCS_T8-master (3) (1)\ProjectCS_T8-master\Interface(form)\obj\Debug\Interface(form).exe
+C:\Users\Arnau Pont\Downloads\ProjectCS_T8-master (3) (1)\ProjectCS_T8-master\Interface(form)\obj\Debug\Interface(form).pdb
+C:\Users\alesp\Desktop\proyecto version 2\ProjectCS_T8-master (3) (1)\ProjectCS_T8-master\Interface(form)\bin\Debug\Interface(form).exe.config
+C:\Users\alesp\Desktop\proyecto version 2\ProjectCS_T8-master (3) (1)\ProjectCS_T8-master\Interface(form)\bin\Debug\Interface(form).exe
+C:\Users\alesp\Desktop\proyecto version 2\ProjectCS_T8-master (3) (1)\ProjectCS_T8-master\Interface(form)\bin\Debug\Interface(form).pdb
+C:\Users\alesp\Desktop\proyecto version 2\ProjectCS_T8-master (3) (1)\ProjectCS_T8-master\Interface(form)\bin\Debug\FlightLib.dll
+C:\Users\alesp\Desktop\proyecto version 2\ProjectCS_T8-master (3) (1)\ProjectCS_T8-master\Interface(form)\bin\Debug\FlightLib.pdb
+C:\Users\alesp\Desktop\proyecto version 2\ProjectCS_T8-master (3) (1)\ProjectCS_T8-master\Interface(form)\obj\Debug\Interface(form).csproj.AssemblyReference.cache
+C:\Users\alesp\Desktop\proyecto version 2\ProjectCS_T8-master (3) (1)\ProjectCS_T8-master\Interface(form)\obj\Debug\Interface(form).exe.config
+C:\Users\alesp\Desktop\proyecto version 2\ProjectCS_T8-master (3) (1)\ProjectCS_T8-master\Interface(form)\obj\Debug\Interface_form_.EditSpeedsForm.resources
+C:\Users\alesp\Desktop\proyecto version 2\ProjectCS_T8-master (3) (1)\ProjectCS_T8-master\Interface(form)\obj\Debug\Interface_form_.FlightGrid.resources
+C:\Users\alesp\Desktop\proyecto version 2\ProjectCS_T8-master (3) (1)\ProjectCS_T8-master\Interface(form)\obj\Debug\Interface_form_.FlightInfo.resources
+C:\Users\alesp\Desktop\proyecto version 2\ProjectCS_T8-master (3) (1)\ProjectCS_T8-master\Interface(form)\obj\Debug\Interface_form_.FlightPlanForm.resources
+C:\Users\alesp\Desktop\proyecto version 2\ProjectCS_T8-master (3) (1)\ProjectCS_T8-master\Interface(form)\obj\Debug\Interface_form_.Main.resources
+C:\Users\alesp\Desktop\proyecto version 2\ProjectCS_T8-master (3) (1)\ProjectCS_T8-master\Interface(form)\obj\Debug\Interface_form_.Properties.Resources.resources
+C:\Users\alesp\Desktop\proyecto version 2\ProjectCS_T8-master (3) (1)\ProjectCS_T8-master\Interface(form)\obj\Debug\Interface_form_.SafetySettingsForm.resources
+C:\Users\alesp\Desktop\proyecto version 2\ProjectCS_T8-master (3) (1)\ProjectCS_T8-master\Interface(form)\obj\Debug\Interface_form_.SimulationForm.resources
+C:\Users\alesp\Desktop\proyecto version 2\ProjectCS_T8-master (3) (1)\ProjectCS_T8-master\Interface(form)\obj\Debug\Interface(form).csproj.GenerateResource.cache
+C:\Users\alesp\Desktop\proyecto version 2\ProjectCS_T8-master (3) (1)\ProjectCS_T8-master\Interface(form)\obj\Debug\Interface(form).csproj.CoreCompileInputs.cache
+C:\Users\alesp\Desktop\proyecto version 2\ProjectCS_T8-master (3) (1)\ProjectCS_T8-master\Interface(form)\obj\Debug\Interfac.B1A64EDC.Up2Date
+C:\Users\alesp\Desktop\proyecto version 2\ProjectCS_T8-master (3) (1)\ProjectCS_T8-master\Interface(form)\obj\Debug\Interface(form).exe
+C:\Users\alesp\Desktop\proyecto version 2\ProjectCS_T8-master (3) (1)\ProjectCS_T8-master\Interface(form)\obj\Debug\Interface(form).pdb

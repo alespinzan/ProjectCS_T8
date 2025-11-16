@@ -155,5 +155,31 @@ namespace Interface_form_
             _flightplans.Clear();
             MessageBox.Show("La lista de planes de vuelo ha sido vaciada.", "Reset", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+        private void browcebtn_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.Title = "Select Flight Plan File";
+                openFileDialog.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string filePath = openFileDialog.FileName;
+                    int plansAdded = _flightplans.loadFlpFromFile(filePath);
+
+                    if (plansAdded >= 0)
+                    {
+                        MessageBox.Show($"{plansAdded} flight plan(s) loaded successfully.", "File Loaded", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.DialogResult = DialogResult.OK;
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error reading or parsing the file.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
     }
 }
