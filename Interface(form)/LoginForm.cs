@@ -34,7 +34,6 @@ namespace Interface_form_
 
                 if (storedPassword != null && storedPassword == PasswordTbox.Text)
                 {
-                    MessageBox.Show("Login successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Main mainForm = new Main();
                     mainForm.Show();
                     this.Hide();

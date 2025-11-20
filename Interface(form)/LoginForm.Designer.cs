@@ -41,18 +41,18 @@
             this.usernamelbl.AutoSize = true;
             this.usernamelbl.Location = new System.Drawing.Point(212, 161);
             this.usernamelbl.Name = "usernamelbl";
-            this.usernamelbl.Size = new System.Drawing.Size(143, 25);
+            this.usernamelbl.Size = new System.Drawing.Size(102, 25);
             this.usernamelbl.TabIndex = 2;
-            this.usernamelbl.Text = "New username";
+            this.usernamelbl.Text = "Username";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(401, 161);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(143, 25);
+            this.label2.Size = new System.Drawing.Size(98, 25);
             this.label2.TabIndex = 3;
-            this.label2.Text = "New username";
+            this.label2.Text = "Password";
             // 
             // UsernameTbox
             // 

@@ -215,9 +215,9 @@ namespace Interface_form_
                 PictureBox p = new PictureBox();
                 FlightPlan f = _flightPlans.GetFlightPlan(i);
 
-                p.Width = 20;
-                p.Height = 20;
-                p.ClientSize = new Size(20, 20);
+                p.Width = 10;
+                p.Height = 10;
+                p.ClientSize = new Size(10, 10);
 
                 Point screenPos = MapearCoordenadas(f.GetInitialPosition());
                 int x = screenPos.X - p.Width / 2;
