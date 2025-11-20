@@ -15,10 +15,15 @@ namespace Interface_form_
         public Main()
         {
             InitializeComponent();
-
+            // This event handler will be called when the form is closed
+            this.FormClosed += new FormClosedEventHandler(Main_FormClosed);
         }
 
-
+        private void Main_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            // This ensures the entire application exits
+            Application.Exit();
+        }
 
         // --- MÉTODO 'securitySettings' (CORREGIDO) ---
         private void securitySettingsToolStripMenuItem1_Click(object sender, EventArgs e)

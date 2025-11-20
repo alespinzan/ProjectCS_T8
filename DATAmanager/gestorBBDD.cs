@@ -23,15 +23,19 @@ namespace DATAmanager
             string dataSource = $"Data Source={dbPath};Version=3;";
             this.cnx = new SQLiteConnection(dataSource);
 
-            //users (id text primarykey, password text);
-
             try
             {
                 this.cnx.Open();
+                // Create the table if it doesn't exist
+                string createTableQuery = "CREATE TABLE IF NOT EXISTS users (id TEXT PRIMARY KEY, password TEXT NOT NULL)";
+                using (SQLiteCommand cmd = new SQLiteCommand(createTableQuery, cnx))
+                {
+                    cmd.ExecuteNonQuery();
+                }
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error connecting to database: {ex.Message}");
+                Console.WriteLine($"Error connecting to or initializing database: {ex.Message}");
                 throw;
             }
         }
@@ -44,16 +48,50 @@ namespace DATAmanager
             }
         }
 
-        public void InsertUser(string username, string password)
+        public void RegisterUser(string username, string password)
         {
-            string query = "INSERT INTO users VALUES('" + username + "','" + password+"')";
+            // Using parameters to prevent SQL injection
+            string query = "INSERT INTO users (id, password) VALUES (@id, @password)";
 
-            SQLiteCommand cmd = new SQLiteCommand(query, cnx);
-            int rows = cmd.ExecuteNonQuery();
-
-            Console.WriteLine("filas insertadas:" + rows);
+            using (SQLiteCommand cmd = new SQLiteCommand(query, cnx))
+            {
+                cmd.Parameters.AddWithValue("@id", username);
+                cmd.Parameters.AddWithValue("@password", password);
+                int rows = cmd.ExecuteNonQuery();
+                Console.WriteLine("filas insertadas:" + rows);
+            }
         }
 
-    
+
+        // Métodos de guet id y passwor, algoritmo de validación
+        public string GetUserid(string Username)
+        {
+            DataTable dt = new DataTable();
+            string sql = "SELECT * FROM users where id = '" + Username + "'";
+            SQLiteDataAdapter adp = new SQLiteDataAdapter(sql, cnx);
+            int rows = adp.Fill(dt);
+
+            if (dt.Rows.Count > 0)
+            {
+                return dt.Rows[0]["id"].ToString();
+            }
+
+            return null;
+        }
+
+        public string GetPassword(string username)
+        {
+            DataTable dt = new DataTable();
+            string sql = "SELECT password FROM users where id = '" + username + "'";
+            SQLiteDataAdapter adp = new SQLiteDataAdapter(sql, cnx);
+            int rows = adp.Fill(dt);
+
+            if (dt.Rows.Count > 0)
+            {
+                return dt.Rows[0]["password"].ToString();
+            }
+
+            return null;
+        }
     }
 }

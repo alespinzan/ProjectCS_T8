@@ -130,3 +130,30 @@ C:\Users\alesp\Desktop\proyecto version 2\ProjectCS_T8-master (3) (1)\ProjectCS_
 C:\Users\alesp\Desktop\proyecto version 2\ProjectCS_T8-master (3) (1)\ProjectCS_T8-master\Interface(form)\obj\Debug\Interfac.B1A64EDC.Up2Date
 C:\Users\alesp\Desktop\proyecto version 2\ProjectCS_T8-master (3) (1)\ProjectCS_T8-master\Interface(form)\obj\Debug\Interface(form).exe
 C:\Users\alesp\Desktop\proyecto version 2\ProjectCS_T8-master (3) (1)\ProjectCS_T8-master\Interface(form)\obj\Debug\Interface(form).pdb
+C:\Users\alesp\Desktop\INFOII\Proyecto_T8\ProjectCS_T8\Interface(form)\bin\Debug\Interface(form).exe.config
+C:\Users\alesp\Desktop\INFOII\Proyecto_T8\ProjectCS_T8\Interface(form)\bin\Debug\Interface(form).exe
+C:\Users\alesp\Desktop\INFOII\Proyecto_T8\ProjectCS_T8\Interface(form)\bin\Debug\Interface(form).pdb
+C:\Users\alesp\Desktop\INFOII\Proyecto_T8\ProjectCS_T8\Interface(form)\bin\Debug\FlightLib.dll
+C:\Users\alesp\Desktop\INFOII\Proyecto_T8\ProjectCS_T8\Interface(form)\bin\Debug\FlightLib.pdb
+C:\Users\alesp\Desktop\INFOII\Proyecto_T8\ProjectCS_T8\Interface(form)\obj\Debug\Interface(form).csproj.AssemblyReference.cache
+C:\Users\alesp\Desktop\INFOII\Proyecto_T8\ProjectCS_T8\Interface(form)\obj\Debug\Interface(form).exe.config
+C:\Users\alesp\Desktop\INFOII\Proyecto_T8\ProjectCS_T8\Interface(form)\obj\Debug\Interface_form_.EditSpeedsForm.resources
+C:\Users\alesp\Desktop\INFOII\Proyecto_T8\ProjectCS_T8\Interface(form)\obj\Debug\Interface_form_.FlightGrid.resources
+C:\Users\alesp\Desktop\INFOII\Proyecto_T8\ProjectCS_T8\Interface(form)\obj\Debug\Interface_form_.FlightInfo.resources
+C:\Users\alesp\Desktop\INFOII\Proyecto_T8\ProjectCS_T8\Interface(form)\obj\Debug\Interface_form_.FlightPlanForm.resources
+C:\Users\alesp\Desktop\INFOII\Proyecto_T8\ProjectCS_T8\Interface(form)\obj\Debug\Interface_form_.Main.resources
+C:\Users\alesp\Desktop\INFOII\Proyecto_T8\ProjectCS_T8\Interface(form)\obj\Debug\Interface_form_.Properties.Resources.resources
+C:\Users\alesp\Desktop\INFOII\Proyecto_T8\ProjectCS_T8\Interface(form)\obj\Debug\Interface_form_.RegisterForm.resources
+C:\Users\alesp\Desktop\INFOII\Proyecto_T8\ProjectCS_T8\Interface(form)\obj\Debug\Interface_form_.SafetySettingsForm.resources
+C:\Users\alesp\Desktop\INFOII\Proyecto_T8\ProjectCS_T8\Interface(form)\obj\Debug\Interface_form_.SimulationForm.resources
+C:\Users\alesp\Desktop\INFOII\Proyecto_T8\ProjectCS_T8\Interface(form)\obj\Debug\Interface_form_.UserForm.resources
+C:\Users\alesp\Desktop\INFOII\Proyecto_T8\ProjectCS_T8\Interface(form)\obj\Debug\Interface(form).csproj.GenerateResource.cache
+C:\Users\alesp\Desktop\INFOII\Proyecto_T8\ProjectCS_T8\Interface(form)\obj\Debug\Interface(form).csproj.CoreCompileInputs.cache
+C:\Users\alesp\Desktop\INFOII\Proyecto_T8\ProjectCS_T8\Interface(form)\obj\Debug\Interfac.B1A64EDC.Up2Date
+C:\Users\alesp\Desktop\INFOII\Proyecto_T8\ProjectCS_T8\Interface(form)\obj\Debug\Interface(form).exe
+C:\Users\alesp\Desktop\INFOII\Proyecto_T8\ProjectCS_T8\Interface(form)\obj\Debug\Interface(form).pdb
+C:\Users\alesp\Desktop\INFOII\Proyecto_T8\ProjectCS_T8\Interface(form)\bin\Debug\BBDD\FlrUserBBDD.db
+C:\Users\alesp\Desktop\INFOII\Proyecto_T8\ProjectCS_T8\Interface(form)\bin\Debug\DATAmanager.dll
+C:\Users\alesp\Desktop\INFOII\Proyecto_T8\ProjectCS_T8\Interface(form)\bin\Debug\System.Data.SQLite.dll
+C:\Users\alesp\Desktop\INFOII\Proyecto_T8\ProjectCS_T8\Interface(form)\bin\Debug\DATAmanager.pdb
+C:\Users\alesp\Desktop\INFOII\Proyecto_T8\ProjectCS_T8\Interface(form)\obj\Debug\Interface_form_.LoginForm.resources
