@@ -157,3 +157,11 @@ C:\Users\alesp\Desktop\INFOII\Proyecto_T8\ProjectCS_T8\Interface(form)\bin\Debug
 C:\Users\alesp\Desktop\INFOII\Proyecto_T8\ProjectCS_T8\Interface(form)\bin\Debug\System.Data.SQLite.dll
 C:\Users\alesp\Desktop\INFOII\Proyecto_T8\ProjectCS_T8\Interface(form)\bin\Debug\DATAmanager.pdb
 C:\Users\alesp\Desktop\INFOII\Proyecto_T8\ProjectCS_T8\Interface(form)\obj\Debug\Interface_form_.LoginForm.resources
+C:\Users\Arnau Pont\Desktop\Repositorio\ProjectCS_T8\Interface(form)\bin\Debug\BBDD\FlrUserBBDD.db
+C:\Users\Arnau Pont\Desktop\Repositorio\ProjectCS_T8\Interface(form)\bin\Debug\DATAmanager.dll
+C:\Users\Arnau Pont\Desktop\Repositorio\ProjectCS_T8\Interface(form)\bin\Debug\System.Data.SQLite.dll
+C:\Users\Arnau Pont\Desktop\Repositorio\ProjectCS_T8\Interface(form)\bin\Debug\DATAmanager.pdb
+C:\Users\Arnau Pont\Desktop\Repositorio\ProjectCS_T8\Interface(form)\bin\Debug\FlightLib.dll.config
+C:\Users\Arnau Pont\Desktop\Repositorio\ProjectCS_T8\Interface(form)\obj\Debug\Interface_form_.LoginForm.resources
+C:\Users\Arnau Pont\Desktop\Repositorio\ProjectCS_T8\Interface(form)\obj\Debug\Interface_form_.RegisterForm.resources
+C:\Users\Arnau Pont\Desktop\Repositorio\ProjectCS_T8\Interface(form)\obj\Debug\Interface_form_.UserForm.resources

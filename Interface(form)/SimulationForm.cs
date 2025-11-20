@@ -40,23 +40,40 @@ namespace Interface_form_
             // Ruta del fichero de guardado (en AppData del usuario)
             _saveFilePath = Path.Combine(Application.UserAppDataPath, "simstate_v1.txt");
 
-            // Ofrecer reanudación si existe fichero guardado
+            _reanudadoDeFichero = false;
+
             if (File.Exists(_saveFilePath))
             {
-                var result = MessageBox.Show(
+                DialogResult respuestaCarga = MessageBox.Show(
                     "Se ha encontrado un estado guardado. ¿Deseas reanudar la simulación desde ese punto?",
                     "Reanudar simulación",
                     MessageBoxButtons.YesNo,
                     MessageBoxIcon.Question);
 
-                if (result == DialogResult.Yes)
+                if (respuestaCarga == DialogResult.Yes)
                 {
-                    if (!TryLoadSimulationState())
+                    bool ok = TryLoadSimulationState();
+                    if (ok)
+                    {
+                        _reanudadoDeFichero = true;
+                    }
+                    else
                     {
                         MessageBox.Show("No se pudo cargar el estado guardado. Se iniciará una nueva simulación.",
                             "Carga fallida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        ReiniciarAIniciales();
                     }
                 }
+                else
+                {
+                    // Usuario ha elegido empezar desde cero: posiciones iniciales
+                    ReiniciarAIniciales();
+                }
+            }
+            else
+            {
+                // No hay fichero: asegurar posiciones iniciales
+                ReiniciarAIniciales();
             }
 
             // 1. Calcular los límites y la escala ANTES de dibujar nada
@@ -360,60 +377,195 @@ namespace Interface_form_
 
         private void startbtn_Click(object sender, EventArgs e)
         {
-            int numFlights = _flightPlans.getnum();
-            bool conflictPredicted = false;
-            int conflictA = -1, conflictB = -1;
+            // Configuración del algoritmo
+            int maxIteraciones = 200;
+            double minSpeed = 0.5; // Velocidad mínima razonable para no “parar” vuelos
+            double reduccionAmbosFactor = 0.85; // Si falla todo, reducir ambos al 85%
+            int iteracion = 0;
 
-            for (int i = 0; i < numFlights; i++)
+            // Diccionario para registrar cambios
+            Dictionary<string, double> cambios = new Dictionary<string, double>();
+
+            // Respaldar velocidades originales (por si luego quieres restaurar en Restart)
+            int total = _flightPlans.getnum();
+            double[] respaldo = new double[total];
+            int r = 0;
+            while (r < total)
+            {
+                FlightPlan respaldoFp = _flightPlans.GetFlightPlan(r);
+                respaldo[r] = respaldoFp.GetVelocidad();
+                r++;
+            }
+
+            // Construir listado inicial de conflictos para mostrar al usuario
+            StringBuilder listadoInicial = new StringBuilder();
+            bool hayInicial = false;
+            int i = 0;
+            while (i < total)
             {
                 FlightPlan a = _flightPlans.GetFlightPlan(i);
-                for (int j = i + 1; j < numFlights; j++)
+                int j = i + 1;
+                while (j < total)
                 {
                     FlightPlan b = _flightPlans.GetFlightPlan(j);
-
                     if (_flightPlans.predictConflict(a, b, _securityDistance))
                     {
-                        conflictPredicted = true;
-                        conflictA = i;
-                        conflictB = j;
+                        listadoInicial.Append("- ").Append(a.GetId()).Append(" con ").Append(b.GetId()).AppendLine();
+                        hayInicial = true;
+                    }
+                    j++;
+                }
+                i++;
+            }
+
+            if (!hayInicial)
+            {
+                MessageBox.Show("No se predicen conflictos futuros entre los vuelos.", "Sin conflictos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                simulationTimer.Interval = (int)(_cycleTime * 1000.0);
+                simulationTimer.Start();
+                return;
+            }
+
+            listadoInicial.AppendLine();
+            listadoInicial.Append("¿Desea resolverlos iterativamente (uno a la vez) ajustando velocidades?");
+            DialogResult respuesta = MessageBox.Show(listadoInicial.ToString(), "Conflictos futuros detectados", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (respuesta != DialogResult.Yes)
+            {
+                MessageBox.Show("Se inicia la simulación sin resolver los conflictos.", "Continuar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                simulationTimer.Interval = (int)(_cycleTime * 1000.0);
+                simulationTimer.Start();
+                return;
+            }
+
+            // Algoritmo iterativo por conflictos
+            while (iteracion < maxIteraciones)
+            {
+                // Encontrar el primer conflicto
+                FlightPlan cA = null;
+                FlightPlan cB = null;
+                int aIndex = -1;
+                int bIndex = -1;
+
+                int x = 0;
+                while (x < total && cA == null)
+                {
+                    FlightPlan fa = _flightPlans.GetFlightPlan(x);
+                    int y = x + 1;
+                    while (y < total)
+                    {
+                        FlightPlan fb = _flightPlans.GetFlightPlan(y);
+                        if (_flightPlans.predictConflict(fa, fb, _securityDistance))
+                        {
+                            cA = fa;
+                            cB = fb;
+                            aIndex = x;
+                            bIndex = y;
+                            break;
+                        }
+                        y++;
+                    }
+                    x++;
+                }
+
+                if (cA == null)
+                {
+                    // No quedan conflictos
+                    break;
+                }
+
+                // Intentar resolver ajustando velocidad de B respecto a A
+                (bool okB, double nuevaVelB) = _flightPlans.ResolveConflictBySpeed(cA, cB, _securityDistance);
+                if (okB)
+                {
+                    cambios[cB.GetId()] = nuevaVelB;
+                    iteracion++;
+                    continue;
+                }
+
+                // Si no, intentar ajustando velocidad de A respecto a B
+                (bool okA, double nuevaVelA) = _flightPlans.ResolveConflictBySpeed(cB, cA, _securityDistance);
+                if (okA)
+                {
+                    cambios[cA.GetId()] = nuevaVelA;
+                    iteracion++;
+                    continue;
+                }
+
+                // Fallback: Ajustar ambos (si tienen recorrido)
+                double distA = cA.GetInitialPosition().Distancia(cA.GetFinalPosition());
+                double distB = cB.GetInitialPosition().Distancia(cB.GetFinalPosition());
+                if (distA > 1e-6 && distB > 1e-6)
+                {
+                    double vA = cA.GetVelocidad();
+                    double vB = cB.GetVelocidad();
+                    double nuevaA = vA * reduccionAmbosFactor;
+                    double nuevaB = vB * reduccionAmbosFactor;
+                    if (nuevaA < minSpeed) nuevaA = minSpeed;
+                    if (nuevaB < minSpeed) nuevaB = minSpeed;
+                    cA.SetVelocidad(nuevaA);
+                    cB.SetVelocidad(nuevaB);
+                    cambios[cA.GetId()] = nuevaA;
+                    cambios[cB.GetId()] = nuevaB;
+                }
+                else
+                {
+                    // Al menos uno no tiene recorrido (origen = destino): no se puede resolver por velocidad.
+                    // Se marca y se continúa buscando otros conflictos.
+                    cambios[cA.GetId()] = cA.GetVelocidad();
+                    cambios[cB.GetId()] = cB.GetVelocidad();
+                }
+
+                iteracion++;
+            }
+
+            // Verificación final
+            bool quedan = false;
+            int ii = 0;
+            while (ii < total && !quedan)
+            {
+                FlightPlan fa2 = _flightPlans.GetFlightPlan(ii);
+                int jj = ii + 1;
+                while (jj < total)
+                {
+                    FlightPlan fb2 = _flightPlans.GetFlightPlan(jj);
+                    if (_flightPlans.predictConflict(fa2, fb2, _securityDistance))
+                    {
+                        quedan = true;
                         break;
                     }
+                    jj++;
                 }
-                if (conflictPredicted) break;
+                ii++;
             }
 
-            if (conflictPredicted)
+            StringBuilder resultado = new StringBuilder();
+            if (cambios.Count > 0)
             {
-                var result = MessageBox.Show(
-                    $"Se predice conflicto entre los vuelos {_flightPlans.GetFlightPlan(conflictA).GetId()} y {_flightPlans.GetFlightPlan(conflictB).GetId()}.\n" +
-                    "¿Desea resolver el conflicto automáticamente ajustando la velocidad de uno de los vuelos?",
-                    "Conflicto futuro detectado",
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Warning);
-
-                if (result == DialogResult.Yes)
+                resultado.AppendLine("Ajustes de velocidad realizados:");
+                foreach (KeyValuePair<string, double> par in cambios)
                 {
-                    (bool resolved, double cspeed) = _flightPlans.ResolveConflictBySpeed(_flightPlans.GetFlightPlan(conflictA), _flightPlans.GetFlightPlan(conflictB), _securityDistance);
-                    if (resolved)
-                    {
-                        MessageBox.Show(
-                            $"La velocidad del vuelo {_flightPlans.GetFlightPlan(conflictB).GetId()} ha sido ajustada a {cspeed} para evitar el conflicto.",
-                            "Conflicto resuelto",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Information);
-                    }
-                    else
-                    {
-                        MessageBox.Show(
-                            $"No se pudo resolver el conflicto ajustando la velocidad.",
-                            "Conflicto no resuelto",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Error);
-                    }
+                    resultado.Append("- ").Append(par.Key).Append(": ").Append(par.Value.ToString("F2")).AppendLine();
                 }
             }
+            else
+            {
+                resultado.AppendLine("No se han realizado ajustes de velocidad.");
+            }
 
-            simulationTimer.Interval = (int)(_cycleTime * 1000);
+            if (!quedan)
+            {
+                resultado.AppendLine();
+                resultado.AppendLine("Todos los conflictos han sido resueltos.");
+                MessageBox.Show(resultado.ToString(), "Resolución completa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                resultado.AppendLine();
+                resultado.AppendLine("Persisten conflictos (posibles vuelos sin recorrido o imposible de resolver sólo con velocidad).");
+                MessageBox.Show(resultado.ToString(), "Resolución incompleta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+            simulationTimer.Interval = (int)(_cycleTime * 1000.0);
             simulationTimer.Start();
         }
 
@@ -515,6 +667,24 @@ namespace Interface_form_
             catch (Exception ex)
             {
                 MessageBox.Show("Error al guardar la simulación: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private bool _reanudadoDeFichero; // indica si se cargó desde fichero
+
+        private void ReiniciarAIniciales()
+        {
+            int n = _flightPlans.getnum();
+            int i = 0;
+            while (i < n)
+            {
+                FlightPlan f = _flightPlans.GetFlightPlan(i);
+                if (f != null)
+                {
+                    Position ini = f.GetInitialPosition();
+                    f.SetCurrentPosition(new Position(ini.GetX(), ini.GetY()));
+                }
+                i++;
             }
         }
     }
