@@ -4,9 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using FlightLib;
 
@@ -21,60 +19,82 @@ namespace Interface_form_
             InitializeComponent();
             flightplans = _flightPlans;
 
-            // Subscribe to the Accept button click event
-            acceptbtn.Click += Acceptbtn_Click;
+         
+
+            // Nuevo: manejar clic en una fila
+            Finfo.CellClick += Finfo_CellClick;
         }
 
         private void FlightGrid_Load(object sender, EventArgs e)
         {
-            // Configura las columnas del DataGridView
             Finfo.Columns.Clear();
             Finfo.Rows.Clear();
             Finfo.ColumnCount = 3;
             Finfo.Columns[0].Name = "ID";
-            Finfo.Columns[1].Name = "Posición Actual u";
-            Finfo.Columns[2].Name = "Velocidad u/s";
+            Finfo.Columns[1].Name = "Posición Actual";
+            Finfo.Columns[2].Name = "Velocidad";
 
-            // Llena el DataGridView con los datos de cada FlightPlan
             int numFlights = flightplans.getnum();
-            for (int i = 0; i < numFlights; i++)
+            int i = 0;
+            while (i < numFlights)
             {
                 FlightPlan plan = flightplans.GetFlightPlan(i);
                 string id = plan.GetId();
                 Position pos = plan.GetCurrentPosition();
-                string posStr = $"({pos.GetX():F2}, {pos.GetY():F2})";
+                string posStr = "(" + pos.GetX().ToString("F2") + ", " + pos.GetY().ToString("F2") + ")";
                 double velocidad = plan.GetVelocidad();
-
                 Finfo.Rows.Add(id, posStr, velocidad);
+                i++;
             }
 
             Finfo.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             Finfo.ColumnHeadersVisible = true;
             Finfo.RowHeadersVisible = false;
-            Finfo.MultiSelect = true;
+            Finfo.MultiSelect = false;
             Finfo.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
+            // Preparar el cuadro de distancias para mostrar varias líneas
+            distancebox.Multiline = true;
+            distancebox.ScrollBars = ScrollBars.Vertical;
+            distancebox.Text = "Clica un vuelo para ver distancias.";
         }
 
-        // Remove the automatic calculation from selection change
-        // private void Finfo_SelectionChanged(object sender, EventArgs e) { }
-
-        private void Acceptbtn_Click(object sender, EventArgs e)
+        
+        private void Finfo_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (Finfo.SelectedRows.Count == 2)
-            {
-                int index1 = Finfo.SelectedRows[0].Index;
-                int index2 = Finfo.SelectedRows[1].Index;
+            if (e.RowIndex < 0) return;
+            MostrarDistanciasDesde(e.RowIndex);
+        }
 
-                FlightPlan plan1 = flightplans.GetFlightPlan(index1);
-                FlightPlan plan2 = flightplans.GetFlightPlan(index2);
-
-                double distance = plan1.Distance(plan2);
-                distancebox.Text = distance.ToString("F2");
-            }
-            else
+        private void MostrarDistanciasDesde(int indice)
+        {
+            FlightPlan basePlan = flightplans.GetFlightPlan(indice);
+            if (basePlan == null)
             {
-                distancebox.Text = "Seleccione dos vuelos";
+                distancebox.Text = "Índice inválido.";
+                return;
             }
+
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine("Distancias desde vuelo " + basePlan.GetId() + ":");
+
+            int total = flightplans.getnum();
+            int i = 0;
+            while (i < total)
+            {
+                if (i != indice)
+                {
+                    FlightPlan otro = flightplans.GetFlightPlan(i);
+                    if (otro != null)
+                    {
+                        double d = basePlan.Distance(otro);
+                        sb.Append("- ").Append(otro.GetId()).Append(": ").Append(d.ToString("F2")).AppendLine();
+                    }
+                }
+                i++;
+            }
+
+            distancebox.Text = sb.ToString();
         }
     }
 }

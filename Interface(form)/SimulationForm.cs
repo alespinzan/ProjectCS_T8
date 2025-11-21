@@ -320,21 +320,42 @@ namespace Interface_form_
             }
             UpdateFlightsUI();
 
-            if (_flightPlans.DetectConflict(_securityDistance) == true)
-            {
-                MessageBox.Show("Conflicto");
-            }
+        
         }
 
+        // Añadir este método dentro de la clase SimulationForm (por ejemplo antes de panel1_Paint)
+        private bool VueloEnConflicto(int indice)
+        {
+            FlightPlan vuelo = _flightPlans.GetFlightPlan(indice);
+            if (vuelo == null) return false;
+            int total = _flightPlans.getnum();
+            int i = 0;
+            while (i < total)
+            {
+                if (i != indice)
+                {
+                    FlightPlan otro = _flightPlans.GetFlightPlan(i);
+                    if (otro != null && vuelo.Conflicto(otro, _securityDistance))
+                    {
+                        return true;
+                    }
+                }
+                i++;
+            }
+            return false;
+        }
+
+        // Sustituir todo el método panel1_Paint por este
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
             e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
 
-            using (Pen pen = new Pen(Color.Black, 2))
-            using (Pen circlePen = new Pen(Color.Blue, 2))
+            using (Pen penTrayecto = new Pen(Color.Black, 2))
             {
-                pen.DashStyle = DashStyle.Dash;
-                for (int i = 0; i < _flightPlans.getnum(); i++)
+                penTrayecto.DashStyle = DashStyle.Dash;
+
+                int i = 0;
+                while (i < _flightPlans.getnum())
                 {
                     FlightPlan flight = _flightPlans.GetFlightPlan(i);
                     Position origin = flight.GetInitialPosition();
@@ -342,17 +363,29 @@ namespace Interface_form_
 
                     Point p1 = MapearCoordenadas(origin);
                     Point p2 = MapearCoordenadas(dest);
-                    e.Graphics.DrawLine(pen, p1.X, p1.Y, p2.X, p2.Y);
+                    e.Graphics.DrawLine(penTrayecto, p1.X, p1.Y, p2.X, p2.Y);
 
                     Position current = flight.GetCurrentPosition();
                     Point centerPoint = MapearCoordenadas(current);
 
-                    float radius = (float)(_securityDistance / 2 * worldScale);
-
+                    float radius = (float)(_securityDistance / 2.0 * worldScale);
                     float ellipseX = centerPoint.X - radius;
                     float ellipseY = centerPoint.Y - radius;
 
-                    e.Graphics.DrawEllipse(circlePen, ellipseX, ellipseY, radius * 2, radius * 2);
+                    bool conflicto = VueloEnConflicto(i);
+
+                    // Color según conflicto: rojo si en conflicto, azul si no
+                    Color colorBorde = conflicto ? Color.Red : Color.Blue;
+                    Color colorRelleno = conflicto ? Color.FromArgb(80, 255, 0, 0) : Color.FromArgb(50, 0, 0, 255);
+
+                    using (Pen penCirc = new Pen(colorBorde, 2))
+                    using (SolidBrush brushCirc = new SolidBrush(colorRelleno))
+                    {
+                        e.Graphics.FillEllipse(brushCirc, ellipseX, ellipseY, radius * 2.0f, radius * 2.0f);
+                        e.Graphics.DrawEllipse(penCirc, ellipseX, ellipseY, radius * 2.0f, radius * 2.0f);
+                    }
+
+                    i++;
                 }
             }
         }
@@ -370,7 +403,7 @@ namespace Interface_form_
 
             if (_flightPlans.DetectConflict(_securityDistance) == true)
             {
-                MessageBox.Show("Conflicto");
+
                 simulationTimer.Stop();
             }
         }
