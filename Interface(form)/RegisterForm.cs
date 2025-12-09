@@ -20,19 +20,26 @@ namespace Interface_form_
 
         private void registerbtn_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(usernameTbox.Text) && !string.IsNullOrWhiteSpace(passwordTbox.Text))
+            try
             {
-                gestorBBDD gestor = new gestorBBDD();
-                gestor.Open();
-                gestor.RegisterUser(usernameTbox.Text, passwordTbox.Text);
-                gestor.Close();
-                MessageBox.Show("User registered successfully!");
-                usernameTbox.Clear();
-                passwordTbox.Clear();
+                if (!string.IsNullOrWhiteSpace(usernameTbox.Text) && !string.IsNullOrWhiteSpace(passwordTbox.Text))
+                {
+                    gestorBBDD gestor = new gestorBBDD();
+                    gestor.Open();
+                    gestor.RegisterUser(usernameTbox.Text, passwordTbox.Text);
+                    gestor.Close();
+                    MessageBox.Show("User registered successfully!");
+                    usernameTbox.Clear();
+                    passwordTbox.Clear();
+                }
+                else
+                {
+                    MessageBox.Show("Please enter both username and password.");
+                }
             }
-            else
+            catch (Exception AlredyRegistered)
             {
-                MessageBox.Show("Please enter both username and password.");
+                MessageBox.Show(AlredyRegistered.Message);
             }
         }
 

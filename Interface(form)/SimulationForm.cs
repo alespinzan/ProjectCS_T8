@@ -37,45 +37,8 @@ namespace Interface_form_
             _securityDistance = securityDistance;
             panel1.Paint += panel1_Paint;
 
-            // Ruta del fichero de guardado (en AppData del usuario)
-            _saveFilePath = Path.Combine(Application.UserAppDataPath, "simstate_v1.txt");
-
-            _reanudadoDeFichero = false;
-
-            if (File.Exists(_saveFilePath))
-            {
-                DialogResult respuestaCarga = MessageBox.Show(
-                    "Se ha encontrado un estado guardado. ¿Deseas reanudar la simulación desde ese punto?",
-                    "Reanudar simulación",
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Question);
-
-                if (respuestaCarga == DialogResult.Yes)
-                {
-                    bool ok = TryLoadSimulationState();
-                    if (ok)
-                    {
-                        _reanudadoDeFichero = true;
-                    }
-                    else
-                    {
-                        MessageBox.Show("No se pudo cargar el estado guardado. Se iniciará una nueva simulación.",
-                            "Carga fallida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        ReiniciarAIniciales();
-                    }
-                }
-                else
-                {
-                    // Usuario ha elegido empezar desde cero: posiciones iniciales
-                    ReiniciarAIniciales();
-                }
-            }
-            else
-            {
-                // No hay fichero: asegurar posiciones iniciales
-                ReiniciarAIniciales();
-            }
-
+            ReiniciarAIniciales();
+      
             // 1. Calcular los límites y la escala ANTES de dibujar nada
             CalcularLimitesYEscala();
 
@@ -247,7 +210,7 @@ namespace Interface_form_
                 using (Graphics g = Graphics.FromImage(bmp))
                 {
                     g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
-                    g.FillEllipse(Brushes.Red, 0, 0, p.Width, p.Height);
+                    g.FillEllipse(Brushes.Black, 0, 0, p.Width, p.Height);
                 }
 
                 p.Image = bmp;
@@ -319,11 +282,8 @@ namespace Interface_form_
                 flight.Mover(_cycleTime);
             }
             UpdateFlightsUI();
-
-        
         }
 
-        // Añadir este método dentro de la clase SimulationForm (por ejemplo antes de panel1_Paint)
         private bool VueloEnConflicto(int indice)
         {
             FlightPlan vuelo = _flightPlans.GetFlightPlan(indice);
@@ -680,6 +640,11 @@ namespace Interface_form_
             }
         }
 
+        private void savebtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void editspeedsbtn_Click(object sender, EventArgs e)
         {
             EditSpeedsForm editForm = new EditSpeedsForm(_flightPlans);
@@ -687,24 +652,10 @@ namespace Interface_form_
             editForm.ShowDialog();
         }
 
-        // --- NUEVO: Guardar y salir ---
-        private void saveExitBtn_Click(object sender, EventArgs e)
+        private void closebtn_Click(object sender, EventArgs e)
         {
-            try
-            {
-                simulationTimer.Stop();
-                SaveSimulationState();
-                MessageBox.Show("Simulación guardada correctamente.", "Guardado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al guardar la simulación: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            this.Close();
         }
-
-        private bool _reanudadoDeFichero; // indica si se cargó desde fichero
-
         private void ReiniciarAIniciales()
         {
             int n = _flightPlans.getnum();

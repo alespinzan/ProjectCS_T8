@@ -46,3 +46,9 @@ C:\Users\alesp\Desktop\proyecto version 2\ProjectCS_T8-master (3) (1)\ProjectCS_
 C:\Users\alesp\Desktop\proyecto version 2\ProjectCS_T8-master (3) (1)\ProjectCS_T8-master\FlightLib\obj\Debug\FlightLib.csproj.CoreCompileInputs.cache
 C:\Users\alesp\Desktop\proyecto version 2\ProjectCS_T8-master (3) (1)\ProjectCS_T8-master\FlightLib\obj\Debug\FlightLib.dll
 C:\Users\alesp\Desktop\proyecto version 2\ProjectCS_T8-master (3) (1)\ProjectCS_T8-master\FlightLib\obj\Debug\FlightLib.pdb
+C:\Users\alesp\Desktop\ProjectCS_T8\FlightLib\bin\Debug\FlightLib.dll
+C:\Users\alesp\Desktop\ProjectCS_T8\FlightLib\bin\Debug\FlightLib.pdb
+C:\Users\alesp\Desktop\ProjectCS_T8\FlightLib\obj\Debug\FlightLib.csproj.AssemblyReference.cache
+C:\Users\alesp\Desktop\ProjectCS_T8\FlightLib\obj\Debug\FlightLib.csproj.CoreCompileInputs.cache
+C:\Users\alesp\Desktop\ProjectCS_T8\FlightLib\obj\Debug\FlightLib.dll
+C:\Users\alesp\Desktop\ProjectCS_T8\FlightLib\obj\Debug\FlightLib.pdb

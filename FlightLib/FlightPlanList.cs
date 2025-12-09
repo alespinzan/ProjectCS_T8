@@ -11,14 +11,23 @@ namespace FlightLib
     {
         FlightPlan[] vector = new FlightPlan[20];
         int number = 0;
+        string name = string.Empty;
 
         public int getnum()
         {
             return number;
+        }
 
+        public void setname(string name)
+        {
+            this.name = name;
+        }
+
+        public string getname()
+        {
+            return name;
         }
         
-
         public int AddFlightPlan(FlightPlan p)
         {
             if (number == 10)
@@ -213,7 +222,38 @@ namespace FlightLib
             return (false, originalSpeed);
         }
 
+        public void RemoveLast()
+        {
+            if (number > 0)
+            {
+                number--;
+                vector[number] = null; 
+            }
+        }
 
-        // Método para comprobar conflictos entre todos los pares de vuelos
+        public void RemoveById(string id)
+        {
+            int foundIndex = -1;
+            for (int i = 0; i < number; i++)
+            {
+                if (vector[i].GetId() == id)
+                {
+                    foundIndex = i;
+                    break;
+                }
+            }
+
+            if (foundIndex != -1)
+            {
+                
+                for (int i = foundIndex; i < number - 1; i++)
+                {
+                    vector[i] = vector[i + 1];
+                }
+                number--;
+                vector[number] = null; 
+            }
+        }
+
     }
 }

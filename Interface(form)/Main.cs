@@ -15,8 +15,16 @@ namespace Interface_form_
         public Main()
         {
             InitializeComponent();
+            UpdateParameterLabels();
             // This event handler will be called when the form is closed
             this.FormClosed += new FormClosedEventHandler(Main_FormClosed);
+        }
+
+        private void UpdateParameterLabels()
+        {
+            simlbl.Text = flightPlans.getnum() > 0 ? flightPlans.getnum().ToString() : "-";
+            cyclelbl.Text = cycleTime > 0 ? cycleTime.ToString() : "-";
+            securitylbl.Text = securityDistance > 0 ? securityDistance.ToString() : "-";
         }
 
         private void Main_FormClosed(object sender, FormClosedEventArgs e)
@@ -38,6 +46,7 @@ namespace Interface_form_
                     // (Hemos quitado 'maxPasajeros')
 
                     MessageBox.Show($"Security distance set to {securityDistance}\nCycle time set to {cycleTime}", "Safety Settings", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    UpdateParameterLabels();
                 }
             }
         }
@@ -72,6 +81,7 @@ namespace Interface_form_
             {
                 flightPlans.EscribeConsola();
                 MessageBox.Show("Flight plans added to Main.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                UpdateParameterLabels();
             }
         }
     }

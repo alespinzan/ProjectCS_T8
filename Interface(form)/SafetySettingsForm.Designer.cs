@@ -39,29 +39,29 @@
             // securitybox
             // 
             this.securitybox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.securitybox.Location = new System.Drawing.Point(410, 193);
-            this.securitybox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.securitybox.Location = new System.Drawing.Point(262, 93);
+            this.securitybox.Margin = new System.Windows.Forms.Padding(2);
             this.securitybox.Name = "securitybox";
-            this.securitybox.Size = new System.Drawing.Size(74, 39);
+            this.securitybox.Size = new System.Drawing.Size(74, 30);
             this.securitybox.TabIndex = 0;
             // 
             // cyclebox
             // 
             this.cyclebox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.cyclebox.Location = new System.Drawing.Point(244, 193);
-            this.cyclebox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cyclebox.Location = new System.Drawing.Point(96, 93);
+            this.cyclebox.Margin = new System.Windows.Forms.Padding(2);
             this.cyclebox.Name = "cyclebox";
-            this.cyclebox.Size = new System.Drawing.Size(74, 39);
+            this.cyclebox.Size = new System.Drawing.Size(74, 30);
             this.cyclebox.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label1.Location = new System.Drawing.Point(383, 160);
+            this.label1.Location = new System.Drawing.Point(235, 60);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(198, 29);
+            this.label1.Size = new System.Drawing.Size(142, 20);
             this.label1.TabIndex = 2;
             this.label1.Text = "Security Distance";
             // 
@@ -69,17 +69,17 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label2.Location = new System.Drawing.Point(231, 160);
+            this.label2.Location = new System.Drawing.Point(83, 60);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(135, 29);
+            this.label2.Size = new System.Drawing.Size(93, 20);
             this.label2.TabIndex = 3;
             this.label2.Text = "Cycle Time";
             // 
             // cancelButton
             // 
-            this.cancelButton.Location = new System.Drawing.Point(386, 256);
-            this.cancelButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cancelButton.Location = new System.Drawing.Point(238, 156);
+            this.cancelButton.Margin = new System.Windows.Forms.Padding(2);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(86, 42);
             this.cancelButton.TabIndex = 4;
@@ -89,8 +89,8 @@
             // 
             // acceptButton
             // 
-            this.acceptButton.Location = new System.Drawing.Point(244, 256);
-            this.acceptButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.acceptButton.Location = new System.Drawing.Point(96, 156);
+            this.acceptButton.Margin = new System.Windows.Forms.Padding(2);
             this.acceptButton.Name = "acceptButton";
             this.acceptButton.Size = new System.Drawing.Size(86, 42);
             this.acceptButton.TabIndex = 5;
@@ -102,14 +102,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(804, 473);
+            this.ClientSize = new System.Drawing.Size(490, 283);
             this.Controls.Add(this.acceptButton);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cyclebox);
             this.Controls.Add(this.securitybox);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "SafetySettingsForm";
             this.Text = "SafetySettingsForm";
             this.ResumeLayout(false);

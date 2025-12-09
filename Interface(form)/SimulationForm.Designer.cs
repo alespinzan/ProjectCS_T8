@@ -31,14 +31,17 @@
             this.conflictbtn = new System.Windows.Forms.Button();
             this.editspeedsbtn = new System.Windows.Forms.Button();
             this.returnbtn = new System.Windows.Forms.Button();
-            this.saveExitBtn = new System.Windows.Forms.Button();
+            this.closebtn = new System.Windows.Forms.Button();
+            this.savebtn = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Location = new System.Drawing.Point(56, 47);
+            this.panel1.Location = new System.Drawing.Point(36, 56);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(873, 600);
@@ -46,7 +49,7 @@
             // 
             // cyclebtn
             // 
-            this.cyclebtn.Location = new System.Drawing.Point(985, 47);
+            this.cyclebtn.Location = new System.Drawing.Point(965, 56);
             this.cyclebtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cyclebtn.Name = "cyclebtn";
             this.cyclebtn.Size = new System.Drawing.Size(113, 37);
@@ -60,7 +63,7 @@
             this.groupBox1.Controls.Add(this.restartbtn);
             this.groupBox1.Controls.Add(this.stopbtn);
             this.groupBox1.Controls.Add(this.startbtn);
-            this.groupBox1.Location = new System.Drawing.Point(985, 111);
+            this.groupBox1.Location = new System.Drawing.Point(965, 138);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -108,7 +111,7 @@
             // 
             // infobtn
             // 
-            this.infobtn.Location = new System.Drawing.Point(985, 367);
+            this.infobtn.Location = new System.Drawing.Point(965, 387);
             this.infobtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.infobtn.Name = "infobtn";
             this.infobtn.Size = new System.Drawing.Size(113, 37);
@@ -119,7 +122,7 @@
             // 
             // conflictbtn
             // 
-            this.conflictbtn.Location = new System.Drawing.Point(985, 425);
+            this.conflictbtn.Location = new System.Drawing.Point(965, 336);
             this.conflictbtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.conflictbtn.Name = "conflictbtn";
             this.conflictbtn.Size = new System.Drawing.Size(113, 37);
@@ -130,10 +133,10 @@
             // 
             // editspeedsbtn
             // 
-            this.editspeedsbtn.Location = new System.Drawing.Point(985, 548);
+            this.editspeedsbtn.Location = new System.Drawing.Point(965, 430);
             this.editspeedsbtn.Margin = new System.Windows.Forms.Padding(4);
             this.editspeedsbtn.Name = "editspeedsbtn";
-            this.editspeedsbtn.Size = new System.Drawing.Size(104, 31);
+            this.editspeedsbtn.Size = new System.Drawing.Size(113, 37);
             this.editspeedsbtn.TabIndex = 5;
             this.editspeedsbtn.Text = "Edit Speeds";
             this.editspeedsbtn.UseVisualStyleBackColor = true;
@@ -141,32 +144,44 @@
             // 
             // returnbtn
             // 
-            this.returnbtn.Location = new System.Drawing.Point(985, 490);
+            this.returnbtn.Location = new System.Drawing.Point(965, 99);
             this.returnbtn.Margin = new System.Windows.Forms.Padding(4);
             this.returnbtn.Name = "returnbtn";
-            this.returnbtn.Size = new System.Drawing.Size(105, 33);
+            this.returnbtn.Size = new System.Drawing.Size(113, 33);
             this.returnbtn.TabIndex = 6;
             this.returnbtn.Text = "Return";
             this.returnbtn.UseVisualStyleBackColor = true;
             this.returnbtn.Click += new System.EventHandler(this.returnbtn_Click);
             // 
-            // saveExitBtn
+            // closebtn
             // 
-            this.saveExitBtn.Location = new System.Drawing.Point(985, 594);
-            this.saveExitBtn.Margin = new System.Windows.Forms.Padding(4);
-            this.saveExitBtn.Name = "saveExitBtn";
-            this.saveExitBtn.Size = new System.Drawing.Size(113, 37);
-            this.saveExitBtn.TabIndex = 7;
-            this.saveExitBtn.Text = "Guardar y salir";
-            this.saveExitBtn.UseVisualStyleBackColor = true;
-            this.saveExitBtn.Click += new System.EventHandler(this.saveExitBtn_Click);
+            this.closebtn.Location = new System.Drawing.Point(965, 574);
+            this.closebtn.Margin = new System.Windows.Forms.Padding(4);
+            this.closebtn.Name = "closebtn";
+            this.closebtn.Size = new System.Drawing.Size(113, 37);
+            this.closebtn.TabIndex = 8;
+            this.closebtn.Text = "Close";
+            this.closebtn.UseVisualStyleBackColor = true;
+            this.closebtn.Click += new System.EventHandler(this.closebtn_Click);
+            // 
+            // savebtn
+            // 
+            this.savebtn.Location = new System.Drawing.Point(36, 13);
+            this.savebtn.Margin = new System.Windows.Forms.Padding(4);
+            this.savebtn.Name = "savebtn";
+            this.savebtn.Size = new System.Drawing.Size(113, 37);
+            this.savebtn.TabIndex = 9;
+            this.savebtn.Text = "Save";
+            this.savebtn.UseVisualStyleBackColor = true;
+            this.savebtn.Click += new System.EventHandler(this.savebtn_Click);
             // 
             // SimulationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1271, 710);
-            this.Controls.Add(this.saveExitBtn);
+            this.ClientSize = new System.Drawing.Size(1305, 681);
+            this.Controls.Add(this.savebtn);
+            this.Controls.Add(this.closebtn);
             this.Controls.Add(this.returnbtn);
             this.Controls.Add(this.editspeedsbtn);
             this.Controls.Add(this.conflictbtn);
@@ -196,6 +211,7 @@
         private System.Windows.Forms.Button restartbtn;
         private System.Windows.Forms.Button editspeedsbtn;
         private System.Windows.Forms.Button returnbtn;
-        private System.Windows.Forms.Button saveExitBtn;
+        private System.Windows.Forms.Button closebtn;
+        private System.Windows.Forms.Button savebtn;
     }
 }

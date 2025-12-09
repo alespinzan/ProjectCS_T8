@@ -13,80 +13,52 @@ namespace Interface_form_
 {
     public partial class FlightPlanForm : Form
     {
-        // Expose the created plans so Main can read them after ShowDialog()
         public FlightPlanList _flightplans;
-
         public FlightPlan Flightplan1 {  get; set; }
         public FlightPlan Flightplan2 { get; set; }
-        // Default velocity used if no velocity TextBox is present or left empty
 
         public FlightPlanForm(FlightPlanList flightplans)
         {
             InitializeComponent();
             _flightplans = flightplans;
 
-            // Ensure Cancel button closes the dialog (designer may or may not have wired it)
-            if (cancelButton != null)
-                cancelButton.Click += CancelButton_Click;
+            UpdateDataSource();
         }
+
+        private void UpdateDataSource()
+        {
+            // Create a DataTable to hold the flight plan data
+            DataTable dt = new DataTable();
+            dt.Columns.Add("ID", typeof(string));
+            dt.Columns.Add("Initial X", typeof(double));
+            dt.Columns.Add("Initial Y", typeof(double));
+            dt.Columns.Add("Final X", typeof(double));
+            dt.Columns.Add("Final Y", typeof(double));
+            dt.Columns.Add("Velocity", typeof(double));
+
+            // Populate the DataTable with data from the FlightPlanList
+            for (int i = 0; i < _flightplans.getnum(); i++)
+            {
+                FlightPlan fp = _flightplans.GetFlightPlan(i);
+                dt.Rows.Add(
+                    fp.GetId(),
+                    fp.GetInitialPosition().GetX(),
+                    fp.GetInitialPosition().GetY(),
+                    fp.GetFinalPosition().GetX(),
+                    fp.GetFinalPosition().GetY(),
+                    fp.GetVelocidad()
+                );
+            }
+
+            // Bind the DataTable to the DataGridView
+            flightPlansDataGridView.DataSource = dt;
+            flightPlansDataGridView.Refresh();
+        }
+
 
         private void acceptButton_Click(object sender, EventArgs e)
         {
-            try
-            {
-                // 1) Read and validate IDs
-                string id1 = id1box.Text.Trim();
-                string id2 = id2box.Text.Trim();
-
-                double o1x, o1y, d1x, d1y;
-                double o2x, o2y, d2x, d2y;
-
-                // Origin 1
-                string[] o1 = origin1box.Text.Split(',');
-
-                o1x = Convert.ToDouble(o1[0]);
-                o1y = Convert.ToDouble(o1[1]);
-
-                string[] d1 = destination1box.Text.Split(',');
-
-                d1x = Convert.ToDouble(d1[0]);
-                d1y = Convert.ToDouble(d1[1]);
-
-                double velocity1 = Convert.ToDouble(velocity1box.Text);
-
-                string[] o2 = origin2box.Text.Split(',');
-
-                o2x = Convert.ToDouble(o2[0]);
-                o2y = Convert.ToDouble(o2[1]);
-
-                string[] d2 = destination2box.Text.Split(',');
-
-                d2x = Convert.ToDouble(d2[0]);
-                d2y = Convert.ToDouble(d2[1]);
-
-                double velocity2 = Convert.ToDouble(velocity2box.Text);
-
-                Flightplan1 = new FlightPlan(id1, o1x, o1y, d1x, d1y, velocity1);
-                Flightplan2 = new FlightPlan(id2, o2x, o2y, d2x, d2y, velocity2);
-
-                // Añadir los planes a la lista
-                _flightplans.AddFlightPlan(Flightplan1);
-                _flightplans.AddFlightPlan(Flightplan2);
-            }
-            catch
-            {
-                MessageBox.Show("Format Error");
-                return;
-            }
-
-            // 5) Return OK to caller and close
-            this.DialogResult = DialogResult.OK;
-            this.Close();
-        }
-
-        private void CancelButton_Click(object sender, EventArgs e)
-        {
-            this.DialogResult = DialogResult.Cancel;
+            // Return OK to caller and close
             this.Close();
         }
 
@@ -114,8 +86,7 @@ namespace Interface_form_
             _flightplans.AddFlightPlan(Flightplan1);
             _flightplans.AddFlightPlan(Flightplan2);
 
-            this.DialogResult = DialogResult.OK;
-            this.Close();
+            UpdateDataSource();
         }
 
         private void conflictbtn_Click(object sender, EventArgs e)
@@ -145,15 +116,13 @@ namespace Interface_form_
             _flightplans.AddFlightPlan(Flightplan1);
             _flightplans.AddFlightPlan(Flightplan2);
 
-            // Return OK to the caller and close the dialog
-            this.DialogResult = DialogResult.OK;
-            this.Close();
+            UpdateDataSource();
         }
 
         private void resetbtn_Click(object sender, EventArgs e)
         {
             _flightplans.Clear();
-            MessageBox.Show("La lista de planes de vuelo ha sido vaciada.", "Reset", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            UpdateDataSource();
         }
 
         private void browcebtn_Click(object sender, EventArgs e)
@@ -170,15 +139,83 @@ namespace Interface_form_
 
                     if (plansAdded >= 0)
                     {
-                        MessageBox.Show($"{plansAdded} flight plan(s) loaded successfully.", "File Loaded", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        this.DialogResult = DialogResult.OK;
-                        this.Close();
+                        UpdateDataSource();
                     }
                     else
                     {
                         MessageBox.Show("Error reading or parsing the file.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
+            }
+        }
+
+        private void addbtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string id = id1box.Text.Trim();
+                if (string.IsNullOrEmpty(id))
+                {
+                    MessageBox.Show("Flight ID cannot be empty.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                string[] originCoords = origin1box.Text.Split(',');
+                double originX = Convert.ToDouble(originCoords[0]);
+                double originY = Convert.ToDouble(originCoords[1]);
+
+                string[] destCoords = destination1box.Text.Split(',');
+                double destX = Convert.ToDouble(destCoords[0]);
+                double destY = Convert.ToDouble(destCoords[1]);
+
+                double velocity = Convert.ToDouble(velocity1box.Text);
+
+                var newFlightPlan = new FlightPlan(id, originX, originY, destX, destY, velocity);
+                _flightplans.AddFlightPlan(newFlightPlan);
+
+                UpdateDataSource();
+
+                // Clear input fields for next entry
+                id1box.Clear();
+                origin1box.Clear();
+                destination1box.Clear();
+                velocity1box.Clear();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Format Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void undobtn_Click(object sender, EventArgs e)
+        {
+            if (_flightplans.getnum() > 0)
+            {
+                _flightplans.RemoveLast();
+                UpdateDataSource();
+            }
+            else
+            {
+                MessageBox.Show("No flight plans to remove.", "Undo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void deletebtn_Click(object sender, EventArgs e)
+        {
+            if (flightPlansDataGridView.SelectedRows.Count > 0)
+            {
+                // Get the ID from the selected row in the DataTable
+                string selectedId = flightPlansDataGridView.SelectedRows[0].Cells["ID"].Value.ToString();
+                
+                // Remove it from the list using its ID
+                _flightplans.RemoveById(selectedId);
+
+                // Refresh the grid
+                UpdateDataSource();
+            }
+            else
+            {
+                MessageBox.Show("Please select a flight plan to delete.", "Delete", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }
