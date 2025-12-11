@@ -25,10 +25,6 @@ namespace FlightLib
             this.velocidad = velocidad;
         }
 
-        public FlightPlan()
-        {
-        }
-
         //Get y Set para cada atributo
         public string GetId() { return id; }
         public void SetId(string value) { id = value; }

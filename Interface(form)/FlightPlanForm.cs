@@ -85,6 +85,7 @@ namespace Interface_form_
             // Añade los planes a la lista compartida
             _flightplans.AddFlightPlan(Flightplan1);
             _flightplans.AddFlightPlan(Flightplan2);
+            _flightplans.setname("nonConflict");
 
             UpdateDataSource();
         }
@@ -115,6 +116,7 @@ namespace Interface_form_
 
             _flightplans.AddFlightPlan(Flightplan1);
             _flightplans.AddFlightPlan(Flightplan2);
+            _flightplans.setname("conflict");
 
             UpdateDataSource();
         }

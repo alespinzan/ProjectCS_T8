@@ -12,9 +12,9 @@ namespace Interface_form_
 {
     public partial class SimulationForm : Form
     {
-        private readonly FlightPlanList _flightPlans;
-        private readonly double _cycleTime;
-        private readonly double _securityDistance;
+        private FlightPlanList _flightPlans;
+        private double _cycleTime;
+        private double _securityDistance;
         private PictureBox[] flights;
         private Label[] flightLabels;
         private Timer simulationTimer;
@@ -36,8 +36,6 @@ namespace Interface_form_
             _cycleTime = cycleTime;
             _securityDistance = securityDistance;
             panel1.Paint += panel1_Paint;
-
-            ReiniciarAIniciales();
       
             // 1. Calcular los límites y la escala ANTES de dibujar nada
             CalcularLimitesYEscala();
@@ -48,97 +46,7 @@ namespace Interface_form_
             simulationTimer.Tick += timer1_Tick;
         }
 
-        // --- NUEVO: Guardar estado ---
-        private void SaveSimulationState()
-        {
-            // Formato:
-            // SIMSTATE;v1
-            // numFlights
-            // id;speed;ix;iy;fx;fy;cx;cy
-            var ic = CultureInfo.InvariantCulture;
-
-            Directory.CreateDirectory(Path.GetDirectoryName(_saveFilePath) ?? Application.UserAppDataPath);
-
-            using (var sw = new StreamWriter(_saveFilePath, false, Encoding.UTF8))
-            {
-                sw.WriteLine("SIMSTATE;v1");
-                sw.WriteLine(_flightPlans.getnum().ToString(ic));
-
-                for (int i = 0; i < _flightPlans.getnum(); i++)
-                {
-                    var f = _flightPlans.GetFlightPlan(i);
-                    // Evitar ';' en IDs
-                    string id = (f.GetId() ?? "").Replace(";", "_");
-
-                    var ini = f.GetInitialPosition();
-                    var fin = f.GetFinalPosition();
-                    var cur = f.GetCurrentPosition();
-
-                    string line = string.Join(";",
-                        id,
-                        f.GetVelocidad().ToString("R", ic),
-                        ini.GetX().ToString("R", ic),
-                        ini.GetY().ToString("R", ic),
-                        fin.GetX().ToString("R", ic),
-                        fin.GetY().ToString("R", ic),
-                        cur.GetX().ToString("R", ic),
-                        cur.GetY().ToString("R", ic)
-                    );
-
-                    sw.WriteLine(line);
-                }
-            }
-        }
-
-        // --- NUEVO: Cargar estado ---
-        private bool TryLoadSimulationState()
-        {
-            if (!File.Exists(_saveFilePath)) return false;
-
-            var ic = CultureInfo.InvariantCulture;
-            try
-            {
-                string[] lines = File.ReadAllLines(_saveFilePath, Encoding.UTF8);
-                if (lines.Length < 2) return false;
-                if (!lines[0].StartsWith("SIMSTATE;v1", StringComparison.Ordinal)) return false;
-
-                int count;
-                if (!int.TryParse(lines[1], NumberStyles.Integer, ic, out count)) return false;
-                if (lines.Length < 2 + count) return false;
-
-                // Reconstruir la lista
-                _flightPlans.Clear();
-                for (int i = 0; i < count; i++)
-                {
-                    string line = lines[2 + i];
-                    string[] parts = line.Split(';');
-                    if (parts.Length != 8) return false;
-
-                    string id = parts[0];
-                    double speed = double.Parse(parts[1], ic);
-                    double ix = double.Parse(parts[2], ic);
-                    double iy = double.Parse(parts[3], ic);
-                    double fx = double.Parse(parts[4], ic);
-                    double fy = double.Parse(parts[5], ic);
-                    double cx = double.Parse(parts[6], ic);
-                    double cy = double.Parse(parts[7], ic);
-
-                    var fp = new FlightPlan(id, ix, iy, fx, fy, speed);
-                    fp.SetCurrentPosition(new Position(cx, cy));
-                    _flightPlans.AddFlightPlan(fp);
-                }
-
-                // Limpiar historial de deshacer y UI se regenerará en Load
-                _history.Clear();
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
-        }
-
-        // --- NUEVO MÉTODO: Calcula los límites y la escala ---
+       
         private void CalcularLimitesYEscala()
         {
             minWorldX = double.MaxValue;
@@ -172,15 +80,21 @@ namespace Interface_form_
             double scaleX = screenWidth / worldWidth;
             double scaleY = screenHeight / worldHeight;
             worldScale = Math.Min(scaleX, scaleY);
+
+            // Añadir esta comprobación para evitar valores infinitos o NaN
+            if (double.IsInfinity(worldScale) || double.IsNaN(worldScale))
+            {
+                worldScale = 1.0;
+            }
         }
 
-        private Point MapearCoordenadas(Position worldPos)
+        private Point MapearCoordenadas(Position pos)
         {
-            double scaledX = (worldPos.GetX() - minWorldX) * worldScale;
-            int screenX = (int)(scaledX + padding);
+       
+            int screenX = (int)((pos.GetX() - minWorldX) * worldScale) + padding;
 
-            double scaledY = (worldPos.GetY() - minWorldY) * worldScale;
-            int screenY = (int)((panel1.Height - padding) - scaledY);
+           
+            int screenY = (int)((maxWorldY - pos.GetY()) * worldScale) + padding;
 
             return new Point(screenX, screenY);
         }
@@ -195,11 +109,18 @@ namespace Interface_form_
                 PictureBox p = new PictureBox();
                 FlightPlan f = _flightPlans.GetFlightPlan(i);
 
+                // Si la posición actual es nula (p.ej. al cargar un fichero sin estado),
+                // la inicializamos a la posición de partida.
+                if (f.GetCurrentPosition() == null)
+                {
+                    f.Restart();
+                }
+
                 p.Width = 10;
                 p.Height = 10;
                 p.ClientSize = new Size(10, 10);
 
-                Point screenPos = MapearCoordenadas(f.GetInitialPosition());
+                Point screenPos = MapearCoordenadas(f.GetCurrentPosition());
                 int x = screenPos.X - p.Width / 2;
                 int y = screenPos.Y - p.Height / 2;
 
@@ -310,6 +231,9 @@ namespace Interface_form_
         {
             e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
 
+            // Helper function to check for valid float values
+            bool IsFinite(float f) => !float.IsNaN(f) && !float.IsInfinity(f);
+
             using (Pen penTrayecto = new Pen(Color.Black, 2))
             {
                 penTrayecto.DashStyle = DashStyle.Dash;
@@ -328,21 +252,38 @@ namespace Interface_form_
                     Position current = flight.GetCurrentPosition();
                     Point centerPoint = MapearCoordenadas(current);
 
-                    float radius = (float)(_securityDistance / 2.0 * worldScale);
+                    double radiusDouble = (_securityDistance / 2.0) * worldScale;
+
+                    if (double.IsNaN(radiusDouble) || double.IsInfinity(radiusDouble) || radiusDouble > (Math.Max(panel1.Width, panel1.Height) * 2))
+                    {
+                        i++;
+                        continue; 
+                    }
+
+                    float radius = (float)radiusDouble;
                     float ellipseX = centerPoint.X - radius;
                     float ellipseY = centerPoint.Y - radius;
+                    float diameter = radius * 2.0f;
+
+                    // --- VALIDACIÓN MEJORADA ---
+                    // Ensure all calculated values are finite before drawing.
+                    if (!IsFinite(ellipseX) || !IsFinite(ellipseY) || !IsFinite(diameter) || diameter <= 0)
+                    {
+                        i++;
+                        continue; // Skip drawing if values are invalid.
+                    }
+                    // --- FIN DE LA VALIDACIÓN ---
 
                     bool conflicto = VueloEnConflicto(i);
 
-                    // Color según conflicto: rojo si en conflicto, azul si no
                     Color colorBorde = conflicto ? Color.Red : Color.Blue;
                     Color colorRelleno = conflicto ? Color.FromArgb(80, 255, 0, 0) : Color.FromArgb(50, 0, 0, 255);
 
                     using (Pen penCirc = new Pen(colorBorde, 2))
                     using (SolidBrush brushCirc = new SolidBrush(colorRelleno))
                     {
-                        e.Graphics.FillEllipse(brushCirc, ellipseX, ellipseY, radius * 2.0f, radius * 2.0f);
-                        e.Graphics.DrawEllipse(penCirc, ellipseX, ellipseY, radius * 2.0f, radius * 2.0f);
+                        e.Graphics.FillEllipse(brushCirc, ellipseX, ellipseY, diameter, diameter);
+                        e.Graphics.DrawEllipse(penCirc, ellipseX, ellipseY, diameter, diameter);
                     }
 
                     i++;
@@ -642,7 +583,29 @@ namespace Interface_form_
 
         private void savebtn_Click(object sender, EventArgs e)
         {
+            using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+            {
+                saveFileDialog.Filter = "Flight Plan files (*.flp)|*.flp|All files (*.*)|*.*";
+                saveFileDialog.Title = "Save Simulation State";
+                saveFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string filePath = saveFileDialog.FileName;
+                    if (!string.IsNullOrEmpty(filePath))
+                    {
+                        int result = _flightPlans.saveToFile(filePath);
+                        if (result == 0)
+                        {
+                            MessageBox.Show("Simulation state saved successfully.", "Save Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Failed to save simulation state.", "Save Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+            }
         }
 
         private void editspeedsbtn_Click(object sender, EventArgs e)

@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Globalization;
 
 namespace FlightLib
 {
@@ -48,8 +49,6 @@ namespace FlightLib
             {
                 return vector[i];
             }
-
-
         }
         public void Mover(double tiempo)
         {
@@ -66,6 +65,7 @@ namespace FlightLib
             for (int i = 0; i < number; i++)
                 vector[i] = null;
             number = 0;
+            name = string.Empty;
         }
 
         public void EscribeConsola()
@@ -86,44 +86,88 @@ namespace FlightLib
             {
                 string[] lines = File.ReadAllLines(filePath);
 
-                foreach (string line in lines)
+                if (lines.Length == 0)
+                {
+                    return -1;
+                }
+
+                this.setname(Path.GetFileNameWithoutExtension(filePath));
+
+                foreach (string rawLine in lines)
                 {
                     if (number >= vector.Length) break;
 
-                    string[] parts = line.Split(',');
-                    if (parts.Length == 6)
+                    string line = rawLine.Trim();
+                    if (line.Length == 0 || line.StartsWith("#")) continue;
+
+                    string[] parts = line.Split((char[])null, StringSplitOptions.RemoveEmptyEntries);
+                    if (parts.Length != 8) continue;
+
+                    if (!double.TryParse(parts[1], NumberStyles.Float, CultureInfo.InvariantCulture, out double originX) ||
+                        !double.TryParse(parts[2], NumberStyles.Float, CultureInfo.InvariantCulture, out double originY) ||
+                        !double.TryParse(parts[3], NumberStyles.Float, CultureInfo.InvariantCulture, out double currentX) ||
+                        !double.TryParse(parts[4], NumberStyles.Float, CultureInfo.InvariantCulture, out double currentY) ||
+                        !double.TryParse(parts[5], NumberStyles.Float, CultureInfo.InvariantCulture, out double destX) ||
+                        !double.TryParse(parts[6], NumberStyles.Float, CultureInfo.InvariantCulture, out double destY) ||
+                        !double.TryParse(parts[7], NumberStyles.Float, CultureInfo.InvariantCulture, out double velocity))
                     {
-                        try
-                        {
-                            string id = parts[0].Trim();
-                            double originX = Convert.ToDouble(parts[1].Trim());
-                            double originY = Convert.ToDouble(parts[2].Trim());
-                            double destX = Convert.ToDouble(parts[3].Trim());
-                            double destY = Convert.ToDouble(parts[4].Trim());
-                            double velocity = Convert.ToDouble(parts[5].Trim());
+                        continue;
+                    }
 
-                            FlightPlan newPlan = new FlightPlan(id, originX, originY, destX, destY, velocity);
+                    string id = parts[0];
+                    FlightPlan newPlan = new FlightPlan(id, originX, originY, destX, destY, velocity);
+                    newPlan.SetCurrentPosition(new Position(currentX, currentY));
 
-                            if (AddFlightPlan(newPlan) == 0)
-                            {
-                                plansAdded++;
-                            }
-                        }
-                        catch (FormatException)
-                        {
-                            // Skip lines with incorrect number format
-                            continue;
-                        }
+                    if (AddFlightPlan(newPlan) == 0)
+                    {
+                        plansAdded++;
                     }
                 }
             }
             catch (Exception)
             {
-                // Could be file not found, access denied, etc.
-                return -1; // Indicate a general error
+                return -1;
             }
             return plansAdded;
         }
+
+        public int saveToFile(string filePath)
+        {
+            try
+            {
+                using (StreamWriter writer = new StreamWriter(filePath))
+                {
+                    for (int i = 0; i < number; i++)
+                    {
+                        FlightPlan plan = vector[i];
+                        Position origin = plan.GetInitialPosition();
+                        Position current = plan.GetCurrentPosition();
+                        Position destination = plan.GetFinalPosition();
+
+                        // Using InvariantCulture to ensure '.' is used as the decimal separator
+                        string line = string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                            "{0} {1} {2} {3} {4} {5} {6} {7}",
+                            plan.GetId(),
+                            origin.GetX(),
+                            origin.GetY(),
+                            current.GetX(),
+                            current.GetY(),
+                            destination.GetX(),
+                            destination.GetY(),
+                            plan.GetVelocidad());
+
+                        writer.WriteLine(line);
+                    }
+                }
+                return 0; // Success
+            }
+            catch (Exception)
+            {
+                // Could be a path error, access denied, etc.
+                return -1; // General error
+            }
+        }
+
 
         public bool DetectConflict(double _securityDistance)
         {

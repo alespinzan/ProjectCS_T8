@@ -34,12 +34,11 @@
             this.securitySettingsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.simulationAirspaceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.loadPreviousToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.slbl = new System.Windows.Forms.Label();
             this.clbl = new System.Windows.Forms.Label();
             this.sclbl = new System.Windows.Forms.Label();
-            this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.simlbl = new System.Windows.Forms.Label();
             this.cyclelbl = new System.Windows.Forms.Label();
             this.securitylbl = new System.Windows.Forms.Label();
@@ -75,22 +74,21 @@
             // flightPlansToolStripMenuItem1
             // 
             this.flightPlansToolStripMenuItem1.Name = "flightPlansToolStripMenuItem1";
-            this.flightPlansToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
+            this.flightPlansToolStripMenuItem1.Size = new System.Drawing.Size(201, 26);
             this.flightPlansToolStripMenuItem1.Text = "FlightPlans";
             this.flightPlansToolStripMenuItem1.Click += new System.EventHandler(this.flightPlansToolStripMenuItem1_Click);
             // 
             // securitySettingsToolStripMenuItem1
             // 
             this.securitySettingsToolStripMenuItem1.Name = "securitySettingsToolStripMenuItem1";
-            this.securitySettingsToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
+            this.securitySettingsToolStripMenuItem1.Size = new System.Drawing.Size(201, 26);
             this.securitySettingsToolStripMenuItem1.Text = "Security Settings";
             this.securitySettingsToolStripMenuItem1.Click += new System.EventHandler(this.securitySettingsToolStripMenuItem1_Click);
             // 
             // simulationAirspaceToolStripMenuItem
             // 
             this.simulationAirspaceToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.showToolStripMenuItem,
-            this.loadPreviousToolStripMenuItem});
+            this.showToolStripMenuItem});
             this.simulationAirspaceToolStripMenuItem.Name = "simulationAirspaceToolStripMenuItem";
             this.simulationAirspaceToolStripMenuItem.Size = new System.Drawing.Size(155, 24);
             this.simulationAirspaceToolStripMenuItem.Text = "Simulation Airspace";
@@ -102,15 +100,15 @@
             this.showToolStripMenuItem.Text = "Open current";
             this.showToolStripMenuItem.Click += new System.EventHandler(this.showToolStripMenuItem_Click);
             // 
+            // usersToolStripMenuItem
+            // 
+            this.usersToolStripMenuItem.Name = "usersToolStripMenuItem";
+            this.usersToolStripMenuItem.Size = new System.Drawing.Size(58, 24);
+            this.usersToolStripMenuItem.Text = "Users";
+            // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // loadPreviousToolStripMenuItem
-            // 
-            this.loadPreviousToolStripMenuItem.Name = "loadPreviousToolStripMenuItem";
-            this.loadPreviousToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.loadPreviousToolStripMenuItem.Text = "Load saved";
             // 
             // slbl
             // 
@@ -138,12 +136,6 @@
             this.sclbl.Size = new System.Drawing.Size(112, 16);
             this.sclbl.TabIndex = 3;
             this.sclbl.Text = "Security distance:";
-            // 
-            // usersToolStripMenuItem
-            // 
-            this.usersToolStripMenuItem.Name = "usersToolStripMenuItem";
-            this.usersToolStripMenuItem.Size = new System.Drawing.Size(58, 24);
-            this.usersToolStripMenuItem.Text = "Users";
             // 
             // simlbl
             // 
@@ -217,7 +209,6 @@
         private System.Windows.Forms.ToolStripMenuItem simulationAirspaceToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem showToolStripMenuItem;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private System.Windows.Forms.ToolStripMenuItem loadPreviousToolStripMenuItem;
         private System.Windows.Forms.Label slbl;
         private System.Windows.Forms.Label clbl;
         private System.Windows.Forms.Label sclbl;

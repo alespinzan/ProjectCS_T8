@@ -22,7 +22,7 @@ namespace Interface_form_
 
         private void UpdateParameterLabels()
         {
-            simlbl.Text = flightPlans.getnum() > 0 ? flightPlans.getnum().ToString() : "-";
+            simlbl.Text = !string.IsNullOrEmpty(flightPlans.getname()) ? flightPlans.getname() : "-";
             cyclelbl.Text = cycleTime > 0 ? cycleTime.ToString() : "-";
             securitylbl.Text = securityDistance > 0 ? securityDistance.ToString() : "-";
         }
@@ -44,8 +44,6 @@ namespace Interface_form_
                     securityDistance = form.SecurityDistance;
                     cycleTime = form.CycleTime;
                     // (Hemos quitado 'maxPasajeros')
-
-                    MessageBox.Show($"Security distance set to {securityDistance}\nCycle time set to {cycleTime}", "Safety Settings", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     UpdateParameterLabels();
                 }
             }
@@ -83,6 +81,8 @@ namespace Interface_form_
                 MessageBox.Show("Flight plans added to Main.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 UpdateParameterLabels();
             }
+
+            UpdateParameterLabels();
         }
     }
 }
