@@ -50,6 +50,7 @@ namespace FlightLib
                 return vector[i];
             }
         }
+
         public void Mover(double tiempo)
         {
             int i = 0;
@@ -60,6 +61,7 @@ namespace FlightLib
             }
 
         }
+
         public void Clear()
         {
             for (int i = 0; i < number; i++)
@@ -101,7 +103,7 @@ namespace FlightLib
                     if (line.Length == 0 || line.StartsWith("#")) continue;
 
                     string[] parts = line.Split((char[])null, StringSplitOptions.RemoveEmptyEntries);
-                    if (parts.Length != 8) continue;
+                    if (parts.Length != 8 && parts.Length != 9) continue;
 
                     if (!double.TryParse(parts[1], NumberStyles.Float, CultureInfo.InvariantCulture, out double originX) ||
                         !double.TryParse(parts[2], NumberStyles.Float, CultureInfo.InvariantCulture, out double originY) ||
@@ -115,7 +117,8 @@ namespace FlightLib
                     }
 
                     string id = parts[0];
-                    FlightPlan newPlan = new FlightPlan(id, originX, originY, destX, destY, velocity);
+                    string companyName = parts.Length >= 9 ? parts[8] : string.Empty;
+                    FlightPlan newPlan = new FlightPlan(id, originX, originY, destX, destY, velocity, companyName);
                     newPlan.SetCurrentPosition(new Position(currentX, currentY));
 
                     if (AddFlightPlan(newPlan) == 0)
@@ -143,10 +146,10 @@ namespace FlightLib
                         Position origin = plan.GetInitialPosition();
                         Position current = plan.GetCurrentPosition();
                         Position destination = plan.GetFinalPosition();
+                        string companyName = plan.GetcompanyName() ?? string.Empty;
 
-                        // Using InvariantCulture to ensure '.' is used as the decimal separator
-                        string line = string.Format(System.Globalization.CultureInfo.InvariantCulture,
-                            "{0} {1} {2} {3} {4} {5} {6} {7}",
+                        string line = string.Format(CultureInfo.InvariantCulture,
+                            "{0} {1} {2} {3} {4} {5} {6} {7} {8}",
                             plan.GetId(),
                             origin.GetX(),
                             origin.GetY(),
@@ -154,17 +157,17 @@ namespace FlightLib
                             current.GetY(),
                             destination.GetX(),
                             destination.GetY(),
-                            plan.GetVelocidad());
+                            plan.GetVelocidad(),
+                            companyName);
 
                         writer.WriteLine(line);
                     }
                 }
-                return 0; // Success
+                return 0;
             }
             catch (Exception)
             {
-                // Could be a path error, access denied, etc.
-                return -1; // General error
+                return -1;
             }
         }
 

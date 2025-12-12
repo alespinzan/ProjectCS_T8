@@ -53,7 +53,7 @@ namespace Interface_form_
         private void showToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FlightPlan fp1 = flightPlans.GetFlightPlan(0);
-            
+
             try
             {
                 if (fp1 == null)
@@ -84,5 +84,14 @@ namespace Interface_form_
 
             UpdateParameterLabels();
         }
+
+        private void OperatorsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (var form = new OperatorsF())
+            {
+                form.ShowDialog(this);
+            }
+        }
+
     }
 }

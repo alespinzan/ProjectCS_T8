@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data.SQLite;
 using System.Data;
+using System.Data.SQLite;
 using System.IO;
 
 namespace DATAmanager
@@ -32,6 +28,8 @@ namespace DATAmanager
                 {
                     cmd.ExecuteNonQuery();
                 }
+
+                CreateAirlinesTable();
             }
             catch (Exception ex)
             {
@@ -39,7 +37,7 @@ namespace DATAmanager
                 throw;
             }
         }
-        
+
         public void Close()
         {
             if (this.cnx != null && this.cnx.State != ConnectionState.Closed)
@@ -61,7 +59,6 @@ namespace DATAmanager
                 Console.WriteLine("filas insertadas:" + rows);
             }
         }
-
 
         // Métodos de guet id y passwor, algoritmo de validación
         public string GetUserid(string Username)
@@ -92,6 +89,87 @@ namespace DATAmanager
             }
 
             return null;
+        }
+
+        // Método para crear la tabla de compañías aéreas
+        public void CreateAirlinesTable()
+        {
+            const string createCompanies = @"
+                    CREATE TABLE IF NOT EXISTS flight_companies (
+                    name  TEXT PRIMARY KEY,
+                    phone TEXT NOT NULL DEFAULT '',
+                    email TEXT NOT NULL DEFAULT ''
+                );";
+            using (var cmd = new SQLiteCommand(createCompanies, cnx))
+            {
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        public bool InsertOrUpdateAirline(string name, string phone, string email)
+        {
+            if (string.IsNullOrWhiteSpace(name))
+                return false;
+
+            const string sql = @"
+INSERT OR REPLACE INTO flight_companies (name, phone, email)
+VALUES (@name, @phone, @email);";
+
+            using (var cmd = new SQLiteCommand(sql, cnx))
+            {
+                cmd.Parameters.AddWithValue("@name", name.Trim());
+                cmd.Parameters.AddWithValue("@phone", phone ?? string.Empty);
+                cmd.Parameters.AddWithValue("@email", email ?? string.Empty);
+                return cmd.ExecuteNonQuery() > 0;
+            }
+        }
+
+        public bool DeleteAirline(string name)
+        {
+            if (string.IsNullOrWhiteSpace(name))
+                return false;
+
+            const string sql = "DELETE FROM flight_companies WHERE name = @name;";
+
+            using (var cmd = new SQLiteCommand(sql, cnx))
+            {
+                cmd.Parameters.AddWithValue("@name", name.Trim());
+                return cmd.ExecuteNonQuery() > 0;
+            }
+        }
+
+        public DataRow GetAirline(string name)
+        {
+            if (string.IsNullOrWhiteSpace(name))
+                return null;
+
+            const string sql = "SELECT name, phone, email FROM flight_companies WHERE name = @name;";
+            DataTable dt = new DataTable();
+
+            using (var cmd = new SQLiteCommand(sql, cnx))
+            {
+                cmd.Parameters.AddWithValue("@name", name.Trim());
+                using (var adp = new SQLiteDataAdapter(cmd))
+                {
+                    adp.Fill(dt);
+                }
+            }
+
+            return dt.Rows.Count > 0 ? dt.Rows[0] : null;
+        }
+
+        public DataTable GetAllAirlines()
+        {
+            const string sql = "SELECT name, phone, email FROM flight_companies ORDER BY name ASC;";
+            DataTable dt = new DataTable();
+
+            using (var cmd = new SQLiteCommand(sql, cnx))
+            using (var adp = new SQLiteDataAdapter(cmd))
+            {
+                adp.Fill(dt);
+            }
+
+            return dt;
         }
     }
 }

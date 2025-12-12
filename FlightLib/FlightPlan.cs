@@ -13,12 +13,14 @@ namespace FlightLib
         Position initialPosition;
         Position currentPosition; // posicion actual
         Position finalPosition; // posicion final
+        string companyName;
         double velocidad;
 
         // Constructores
-        public FlightPlan(string id, double cpx, double cpy, double fpx, double fpy, double velocidad)
+        public FlightPlan(string id, double cpx, double cpy, double fpx, double fpy, double velocidad, string companyName = null)
         {
             this.id = id;
+            this.companyName = companyName ?? string.Empty;
             this.initialPosition = new Position(cpx, cpy);
             this.currentPosition = new Position(cpx, cpy);
             this.finalPosition = new Position(fpx, fpy);
@@ -28,6 +30,9 @@ namespace FlightLib
         //Get y Set para cada atributo
         public string GetId() { return id; }
         public void SetId(string value) { id = value; }
+
+        public void SetcompanyName(string companyName) { this.companyName = companyName ?? string.Empty; }
+        public string GetcompanyName() { return companyName; }
 
         public Position GetInitialPosition() { return initialPosition; }
         public void SetInitialPosition(Position value) { initialPosition = value; }

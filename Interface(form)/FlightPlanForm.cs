@@ -27,21 +27,21 @@ namespace Interface_form_
 
         private void UpdateDataSource()
         {
-            // Create a DataTable to hold the flight plan data
             DataTable dt = new DataTable();
             dt.Columns.Add("ID", typeof(string));
+            dt.Columns.Add("Company", typeof(string));
             dt.Columns.Add("Initial X", typeof(double));
             dt.Columns.Add("Initial Y", typeof(double));
             dt.Columns.Add("Final X", typeof(double));
             dt.Columns.Add("Final Y", typeof(double));
             dt.Columns.Add("Velocity", typeof(double));
 
-            // Populate the DataTable with data from the FlightPlanList
             for (int i = 0; i < _flightplans.getnum(); i++)
             {
                 FlightPlan fp = _flightplans.GetFlightPlan(i);
                 dt.Rows.Add(
                     fp.GetId(),
+                    fp.GetcompanyName(),
                     fp.GetInitialPosition().GetX(),
                     fp.GetInitialPosition().GetY(),
                     fp.GetFinalPosition().GetX(),
@@ -50,7 +50,6 @@ namespace Interface_form_
                 );
             }
 
-            // Bind the DataTable to the DataGridView
             flightPlansDataGridView.DataSource = dt;
             flightPlansDataGridView.Refresh();
         }
@@ -79,8 +78,8 @@ namespace Interface_form_
             double d2y = 0.0;
             double v2 = 600.0;
 
-            Flightplan1 = new FlightPlan(id1, o1x, o1y, d1x, d1y, v1);
-            Flightplan2 = new FlightPlan(id2, o2x, o2y, d2x, d2y, v2);
+            Flightplan1 = new FlightPlan(id1, o1x, o1y, d1x, d1y, v1, null);
+            Flightplan2 = new FlightPlan(id2, o2x, o2y, d2x, d2y, v2, null);
 
             // Añade los planes a la lista compartida
             _flightplans.AddFlightPlan(Flightplan1);
@@ -111,8 +110,8 @@ namespace Interface_form_
             double v2 = 500; // meters per second (example)
 
             // Create the FlightPlan objects using the available constructor
-            Flightplan1 = new FlightPlan(id1, o1x, o1y, d1x, d1y, v1);
-            Flightplan2 = new FlightPlan(id2, o2x, o2y, d2x, d2y, v2);
+            Flightplan1 = new FlightPlan(id1, o1x, o1y, d1x, d1y, v1, null);
+            Flightplan2 = new FlightPlan(id2, o2x, o2y, d2x, d2y, v2, null);
 
             _flightplans.AddFlightPlan(Flightplan1);
             _flightplans.AddFlightPlan(Flightplan2);
@@ -162,6 +161,12 @@ namespace Interface_form_
                     return;
                 }
 
+                string companyName = operatorbox.Text.Trim();
+                if (companyName.Length == 0)
+                {
+                    companyName = null;
+                }
+
                 string[] originCoords = origin1box.Text.Split(',');
                 double originX = Convert.ToDouble(originCoords[0]);
                 double originY = Convert.ToDouble(originCoords[1]);
@@ -172,13 +177,13 @@ namespace Interface_form_
 
                 double velocity = Convert.ToDouble(velocity1box.Text);
 
-                var newFlightPlan = new FlightPlan(id, originX, originY, destX, destY, velocity);
+                var newFlightPlan = new FlightPlan(id, originX, originY, destX, destY, velocity, companyName);
                 _flightplans.AddFlightPlan(newFlightPlan);
 
                 UpdateDataSource();
 
-                // Clear input fields for next entry
                 id1box.Clear();
+                operatorbox.Clear();
                 origin1box.Clear();
                 destination1box.Clear();
                 velocity1box.Clear();

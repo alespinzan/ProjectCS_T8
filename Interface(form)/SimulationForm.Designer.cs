@@ -33,7 +33,6 @@
             this.returnbtn = new System.Windows.Forms.Button();
             this.closebtn = new System.Windows.Forms.Button();
             this.savebtn = new System.Windows.Forms.Button();
-            this.savesimbtn = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -176,22 +175,11 @@
             this.savebtn.UseVisualStyleBackColor = true;
             this.savebtn.Click += new System.EventHandler(this.savebtn_Click);
             // 
-            // savesimbtn
-            // 
-            this.savesimbtn.Location = new System.Drawing.Point(157, 13);
-            this.savesimbtn.Margin = new System.Windows.Forms.Padding(4);
-            this.savesimbtn.Name = "savesimbtn";
-            this.savesimbtn.Size = new System.Drawing.Size(113, 37);
-            this.savesimbtn.TabIndex = 10;
-            this.savesimbtn.Text = "Load sim";
-            this.savesimbtn.UseVisualStyleBackColor = true;
-            // 
             // SimulationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1163, 681);
-            this.Controls.Add(this.savesimbtn);
             this.Controls.Add(this.savebtn);
             this.Controls.Add(this.closebtn);
             this.Controls.Add(this.returnbtn);
@@ -225,6 +213,5 @@
         private System.Windows.Forms.Button returnbtn;
         private System.Windows.Forms.Button closebtn;
         private System.Windows.Forms.Button savebtn;
-        private System.Windows.Forms.Button savesimbtn;
     }
 }

@@ -28,7 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // InfoVueloForm
+            // 
+            this.ClientSize = new System.Drawing.Size(431, 305);
+            this.Name = "InfoVueloForm";
+            this.ResumeLayout(false);
+
         }
 
         #endregion

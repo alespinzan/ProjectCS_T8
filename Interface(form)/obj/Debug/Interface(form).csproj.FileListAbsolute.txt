@@ -192,3 +192,5 @@ C:\Users\alesp\Desktop\ProjectCS_T8\Interface(form)\obj\Debug\Interface_form_.Us
 C:\Users\alesp\Desktop\ProjectCS_T8\Interface(form)\obj\Debug\Interface(form).csproj.GenerateResource.cache
 C:\Users\alesp\Desktop\ProjectCS_T8\Interface(form)\obj\Debug\Interface(form).csproj.CoreCompileInputs.cache
 C:\Users\alesp\Desktop\ProjectCS_T8\Interface(form)\obj\Debug\Interfac.B1A64EDC.Up2Date
+C:\Users\alesp\Desktop\ProjectCS_T8\Interface(form)\obj\Debug\Interface_form_.OperatorsF.resources
+C:\Users\alesp\Desktop\ProjectCS_T8\Interface(form)\obj\Debug\Interface_form_.InfoVueloForm.resources

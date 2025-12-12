@@ -34,7 +34,7 @@
             this.securitySettingsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.simulationAirspaceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.OperatorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.slbl = new System.Windows.Forms.Label();
             this.clbl = new System.Windows.Forms.Label();
@@ -54,11 +54,11 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.optionsToolStripMenuItem,
             this.simulationAirspaceToolStripMenuItem,
-            this.usersToolStripMenuItem});
+            this.OperatorsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 1, 0, 1);
-            this.menuStrip1.Size = new System.Drawing.Size(498, 26);
+            this.menuStrip1.Size = new System.Drawing.Size(540, 26);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -96,15 +96,16 @@
             // showToolStripMenuItem
             // 
             this.showToolStripMenuItem.Name = "showToolStripMenuItem";
-            this.showToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.showToolStripMenuItem.Size = new System.Drawing.Size(178, 26);
             this.showToolStripMenuItem.Text = "Open current";
             this.showToolStripMenuItem.Click += new System.EventHandler(this.showToolStripMenuItem_Click);
             // 
-            // usersToolStripMenuItem
+            // OperatorsToolStripMenuItem
             // 
-            this.usersToolStripMenuItem.Name = "usersToolStripMenuItem";
-            this.usersToolStripMenuItem.Size = new System.Drawing.Size(58, 24);
-            this.usersToolStripMenuItem.Text = "Users";
+            this.OperatorsToolStripMenuItem.Name = "OperatorsToolStripMenuItem";
+            this.OperatorsToolStripMenuItem.Size = new System.Drawing.Size(89, 24);
+            this.OperatorsToolStripMenuItem.Text = "Operators";
+            this.OperatorsToolStripMenuItem.Click += new System.EventHandler(this.OperatorsToolStripMenuItem_Click);
             // 
             // openFileDialog1
             // 
@@ -172,7 +173,7 @@
             this.groupBox1.Controls.Add(this.simlbl);
             this.groupBox1.Controls.Add(this.cyclelbl);
             this.groupBox1.Controls.Add(this.sclbl);
-            this.groupBox1.Location = new System.Drawing.Point(102, 70);
+            this.groupBox1.Location = new System.Drawing.Point(121, 105);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(266, 120);
             this.groupBox1.TabIndex = 8;
@@ -184,7 +185,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(498, 258);
+            this.ClientSize = new System.Drawing.Size(540, 313);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -212,7 +213,7 @@
         private System.Windows.Forms.Label slbl;
         private System.Windows.Forms.Label clbl;
         private System.Windows.Forms.Label sclbl;
-        private System.Windows.Forms.ToolStripMenuItem usersToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem OperatorsToolStripMenuItem;
         private System.Windows.Forms.Label simlbl;
         private System.Windows.Forms.Label cyclelbl;
         private System.Windows.Forms.Label securitylbl;

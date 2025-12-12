@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
@@ -7,6 +8,7 @@ using FlightLib;
 using System.IO;
 using System.Globalization;
 using System.Text;
+using DATAmanager;
 
 namespace Interface_form_
 {
@@ -499,8 +501,85 @@ namespace Interface_form_
                 MessageBox.Show(resultado.ToString(), "Resolución incompleta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
+            if (cambios.Count > 0 &&
+                MessageBox.Show("¿Desea generar un archivo .txt con los cambios y los contactos de las compañías?",
+                                "Exportar cambios", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                SaveSpeedChangesToTxt(cambios);
+            }
+
             simulationTimer.Interval = (int)(_cycleTime * 1000.0);
             simulationTimer.Start();
+        }
+
+        private void SaveSpeedChangesToTxt(Dictionary<string, double> cambios)
+        {
+            using (SaveFileDialog dialog = new SaveFileDialog
+            {
+                Filter = "Text files (*.txt)|*.txt",
+                DefaultExt = "txt",
+                FileName = "SpeedChanges.txt",
+                Title = "Guardar informe de cambios"
+            })
+            {
+                if (dialog.ShowDialog(this) != DialogResult.OK)
+                {
+                    return;
+                }
+
+                gestorBBDD db = new gestorBBDD();
+                try
+                {
+                    db.Open();
+                    using (StreamWriter writer = new StreamWriter(dialog.FileName, false, Encoding.UTF8))
+                    {
+                        writer.WriteLine("Flight ID\tCompany\tPhone\tEmail\tNew Speed");
+                        foreach (KeyValuePair<string, double> entry in cambios)
+                        {
+                            FlightPlan plan = FindFlightPlan(entry.Key);
+                            string company = plan?.GetcompanyName() ?? string.Empty;
+                            string phone = string.Empty;
+                            string email = string.Empty;
+
+                            if (!string.IsNullOrWhiteSpace(company))
+                            {
+                                DataRow row = db.GetAirline(company);
+                                if (row != null)
+                                {
+                                    company = row["name"].ToString();
+                                    phone = row["phone"].ToString();
+                                    email = row["email"].ToString();
+                                }
+                            }
+
+                            writer.WriteLine($"{entry.Key}\t{company}\t{phone}\t{email}\t{entry.Value.ToString("F2", CultureInfo.InvariantCulture)}");
+                        }
+                    }
+
+                    MessageBox.Show("Archivo de cambios guardado correctamente.", "Exportación completada", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("No fue posible guardar el archivo.\n" + ex.Message, "Error al exportar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    db.Close();
+                }
+            }
+        }
+
+        private FlightPlan FindFlightPlan(string id)
+        {
+            for (int i = 0; i < _flightPlans.getnum(); i++)
+            {
+                FlightPlan plan = _flightPlans.GetFlightPlan(i);
+                if (plan != null && string.Equals(plan.GetId(), id, StringComparison.OrdinalIgnoreCase))
+                {
+                    return plan;
+                }
+            }
+            return null;
         }
 
         private void stopbtn_Click(object sender, EventArgs e)
@@ -547,7 +626,7 @@ namespace Interface_form_
             }
             else
             {
-                MessageBox.Show("No se predicen conflictos futuros entre los vuelos.", "Sin conflicto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+               	MessageBox.Show("No se predicen conflictos futuros entre los vuelos.", "Sin conflicto", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
